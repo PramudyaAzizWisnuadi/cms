@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="flex-grow-1">
                                                 <h5 class="mb-1"><a href="#!">{{ $posts->author->name }}</a></h5>
-                                                <p class="text-muted mb-0">{{ $posts->created_at }}</p>
+                                                <p class="text-muted mb-0">{{ $posts->created_at->format('d F Y') }}</< /p>
                                             </div>
                                         </div>
                                     </div><!--end col-->

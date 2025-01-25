@@ -27,11 +27,16 @@ class SosialResource extends Resource
         return $form
             ->schema([
                 TextInput::make('whatsapp')
-                    ->label('Whatsapp'),
+                    ->label('Whatsapp')
+                    ->placeholder('Nomor Whatsapp.')
+                    ->helperText('Gunakan format 62.'),
+
                 TextInput::make('facebook')
                     ->label('Facebook'),
                 TextInput::make('instagram')
-                    ->label('Instagram'),
+                    ->label('Instagram')
+                    ->placeholder('Nama pengguna Instagram.')
+                    ->helperText('Tanpa @ sebelum nama pengguna'),
                 TextInput::make('twitter')
                     ->label('Twitter'),
                 TextInput::make('youtube')
@@ -41,7 +46,9 @@ class SosialResource extends Resource
                 TextInput::make('email')
                     ->label('Email'),
                 TextInput::make('tiktok')
-                    ->label('Tik Tok'),
+                    ->label('Tik Tok')
+                    ->placeholder('Nama pengguna Tik Tok.')
+                    ->helperText('Gunakan @ sebelum nama pengguna'),
             ]);
     }
 

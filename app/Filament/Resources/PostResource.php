@@ -64,6 +64,8 @@ class PostResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
+                    ->directory('thumbnails')
+                    ->visibility('public')
                     ->nullable(),
             ]);
     }

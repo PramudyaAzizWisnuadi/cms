@@ -8,10 +8,13 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-sm-10">
                     <div class="text-center mt-lg-5 pt-5">
-                        <h1 class="display-6 fw-bold mb-3 lh-base">A better way to fulfill your daily needs with
+                        <div class="display-6 fw-bold mb-3 lh-base">
+                            {!! convertRelativePathsToAbsolute($landingpage->home) !!}
+                        </div>
+                        {{-- <h1 class="display-6 fw-bold mb-3 lh-base">A better way to fulfill your daily needs with
                             <span class="text-danger">MD </span>
                             <span class="text-success">Group </span>
-                        </h1>
+                        </h1> --}}
                         <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and
                             premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
 
@@ -148,8 +151,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h1 class="mb-3 ff-secondary fw-bold lh-base">A Digital web design studio creating
-                            modern & engaging online</h1>
+                        <h1 class="mb-3 ff-secondary fw-bold lh-base">Tentang Kami</h1>
                         <p class="text-muted">To achieve this, it would be necessary to have uniform grammar,
                             pronunciation and more common words. If several languages coalesce the grammar</p>
                     </div>
@@ -777,9 +779,10 @@
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Our <span class="text-danger">Blog</span></h3>
-                        <p class="text-muted mb-4">To achieve this, it would be necessary to have uniform
-                            grammar,
-                            pronunciation and more common words. If several languages coalesce the grammar.</p>
+                        <div class="text-muted mb-4">
+                            {!! convertRelativePathsToAbsolute($landingpage->blog) !!}
+                        </div>
+                        {{-- <p class="text-muted mb-4">Temukan informasi promo, event, serta kegiatan seputar MD Group</p> --}}
                     </div>
                 </div>
             </div>
@@ -797,9 +800,9 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->title }}</h5>
                                 <p class="text-muted mb-2">{!! Str::limit($item->body, 150) !!}...</p>
-                                <a href="pages-blog-overview.html"
-                                    class="link link-primary text-decoration-underline link-offset-1">Read
-                                    Post <i class="ri-arrow-right-up-line"></i></a>
+                                <a href="{{ route('posts.show', $item->slug) }}"
+                                    class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya..
+                                    <i class="ri-arrow-right-up-line"></i></a>
                             </div>
                         </div>
                     </div>
@@ -817,10 +820,11 @@
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Hubungi Kami</h3>
-                        <p class="text-muted mb-4">We thrive when coming up with innovative ideas but also
-                            understand that a smart concept should be supported with faucibus sapien odio
-                            measurable
-                            results.</p>
+                        <div class="text-muted mb-4">
+                            {!! convertRelativePathsToAbsolute($landingpage->kontak) !!}
+                        </div>
+                        {{-- <p class="text-muted mb-4">Kami senang mendengar informasi, pertanyaan, kritik serta saran anda.
+                        </p> --}}
                     </div>
                 </div>
             </div>
@@ -898,7 +902,7 @@
                 const email = document.getElementById('email').value;
                 const subject = document.getElementById('subject').value;
                 const comments = document.getElementById('comments').value;
-                const phoneNumber = '6285641076164'; // Ganti dengan nomor WhatsApp Anda
+                const phoneNumber = "{{ $sosial->whatsapp }}"; // Ganti dengan nomor WhatsApp Anda
                 const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
                     'Name: ' + name + '\nEmail: ' + email + '\nSubject: ' + subject + '\nMessage: ' + comments
                 )}`;

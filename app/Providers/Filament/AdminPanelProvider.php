@@ -41,6 +41,10 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->brandLogo(asset('assets/images/logo-md-group.jpg'))
+            ->brandName('MD Group')
+            ->brandLogoHeight('2rem')
+            ->favicon(asset('assets/images/logomd.ico'))
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,

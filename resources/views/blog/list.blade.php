@@ -169,10 +169,10 @@
                                                     </a>
                                                     <div class="d-flex align-items-center gap-2 mb-3 flex-wrap">
                                                         <span class="text-muted"><i class="ri-calendar-event-line me-1"></i>
-                                                            {{ $item->created_at }}</span><span class="text-muted"> | <a
-                                                                href="pages-profile.html"><i
-                                                                    class="ri-user-3-line me-1"></i>
-                                                                {{ $item->author->name }}</a>
+                                                            {{ $item->created_at->format('d F Y') }}</< /span><span
+                                                                class="text-muted"> | <a href="pages-profile.html"><i
+                                                                        class="ri-user-3-line me-1"></i>
+                                                                    {{ $item->author->name }}</a>
                                                     </div>
                                                     <p class="text-muted mb-2">{!! Str::limit($item->body, 200) !!}...</p>
                                                     <a href="{{ route('posts.show', $item->slug) }}"

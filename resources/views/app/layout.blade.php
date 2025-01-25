@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="en" data-layout="horizontal" data-topbar="dark" data-sidebar-size="lg" data-sidebar="light"
-    data-sidebar-image="none" data-preloader="disable" data-bs-theme="light">
+    data-sidebar-image="none" data-preloader="disable" data-bs-theme="">
 
     <head>
 
         <meta charset="utf-8" />
-        <title> @yield('title')</title>
+        <title>MD Group | @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="MD Group" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -31,6 +31,13 @@
                 cursor: pointer;
             }
         </style>
+        <script>
+            // Set theme on page load based on localStorage
+            (function() {
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-bs-theme', savedTheme);
+            })();
+        </script>
     </head>
 
     <body data-bs-spy="scroll" data-bs-target="#navbar-example">
@@ -94,7 +101,7 @@
                         </ul>
 
                     </div>
-                    {{-- <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">
                         <!-- Other nav items -->
                         <li class="nav-item">
                             <div class="d-flex align-items-center">
@@ -106,7 +113,7 @@
                                 <i class="ri-moon-line"></i>
                             </div>
                         </li>
-                    </ul> --}}
+                    </ul>
                 </div>
             </nav>
             <!-- end navbar -->
@@ -135,7 +142,7 @@
                         <div class="col-lg-7 ms-lg-auto">
                             <div class="row">
                                 <div class="col-sm-4 mt-4">
-                                    <h5 class="text-white mb-0">Company</h5>
+                                    <h5 class="text-white mb-0">Menu</h5>
                                     @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
                                         <div class="text-muted mt-3">
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
@@ -157,7 +164,7 @@
                                 </div>
                                 <div class="col-sm-4
                                                     mt-4">
-                                    <h5 class="text-white mb-0">Apps Pages</h5>
+                                    <h5 class="text-white mb-0">Pages</h5>
                                     <div class="text-muted mt-3">
                                         <ul class="list-unstyled ff-secondary footer-list fs-14">
                                             <li><a href="{{ route('post.list') }}">Blog</a></li>
