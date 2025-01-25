@@ -60,7 +60,7 @@
                                         </div>
                                     </div><!--end col-->
                                     <div class="col-lg-9">
-                                        <div>
+                                        <div class="text-muted mb-3">
                                             {!! convertRelativePathsToAbsolute($posts->body) !!}
                                             {{-- {{ $posts->body }} --}}
                                         </div>

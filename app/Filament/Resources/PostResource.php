@@ -14,6 +14,7 @@ use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PostResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -85,8 +86,15 @@ class PostResource extends Resource
                 Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
                 Tables\Columns\TextColumn::make('updated_at')->dateTime()->sortable(),
             ])
+            ->defaultSort('created_at', 'desc') // Mengurutkan dari post terbaru
             ->filters([
-                //
+                SelectFilter::make('status')
+                    ->label('Status')
+                    ->options([
+                        'draft' => 'Draft',
+                        'published' => 'Published',
+                    ]),
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

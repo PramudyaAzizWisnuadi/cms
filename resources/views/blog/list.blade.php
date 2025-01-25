@@ -163,7 +163,7 @@
                                                 <div class="col-xxl-9 col-lg-7">
                                                     <p class="mb-2 text-primary text-uppercase">{{ $item->category->name }}
                                                     </p>
-                                                    <a href="pages-blog-overview.html">
+                                                    <a href="{{ route('posts.show', $item->slug) }}">
                                                         <h5 class="fs-15 fw-semibold">{{ $item->title }}
                                                         </h5>
                                                     </a>
