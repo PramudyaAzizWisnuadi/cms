@@ -1,0 +1,35 @@
+.thumbnail-fixed-size {
+    width: 20px; /* Atur lebar sesuai kebutuhan */
+    height: 15px; /* Atur tinggi sesuai kebutuhan */
+    object-fit: cover; /* Agar gambar tetap proporsional */
+}
+.form-check-input {
+    width: 2.5em;
+    height: 1.5em;
+    background-color: #ddd;
+    border-radius: 1.5em;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-check-input:checked {
+    background-color: #4caf50;
+}
+
+.form-check-input::before {
+    content: '';
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s;
+}
+
+.form-check-input:checked::before {
+    transform: translateX(1em);
+}
+/*# sourceMappingURL=custom.min.css.map */
