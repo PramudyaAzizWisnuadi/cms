@@ -174,7 +174,7 @@
                                                                         class="ri-user-3-line me-1"></i>
                                                                     {{ $item->author->name }}</a>
                                                     </div>
-                                                    <p class="text-muted mb-2">{!! Str::limit($item->body, 200) !!}...</p>
+                                                    <div class="text-muted mb-2">{!! Str::limit($item->body, 200) !!}</div>
                                                     <a href="{{ route('posts.show', $item->slug) }}"
                                                         class="text-decoration-underline">Baca Selengkapnya<i
                                                             class="ri-arrow-right-line"></i></a>

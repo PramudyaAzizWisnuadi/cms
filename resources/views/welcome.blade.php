@@ -8,23 +8,26 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-sm-10">
                     <div class="text-center mt-lg-5 pt-5">
-                        <div class="display-6 fw-bold mb-3 lh-base">
+                        <div data-aos="zoom-in" data-aos-duration="2000" class="display-6 fw-bold mb-3 lh-base">
                             {!! convertRelativePathsToAbsolute($landingpage->home) !!}
                         </div>
                         {{-- <h1 class="display-6 fw-bold mb-3 lh-base">A better way to fulfill your daily needs with
                             <span class="text-danger">MD </span>
                             <span class="text-success">Group </span>
                         </h1> --}}
-                        <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and
-                            premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
+                        <div data-aos="zoom-in-up"data-aos-duration="2500">
+                            <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and
+                                premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
 
-                        <div class="d-flex gap-2 justify-content-center mt-4">
-                            <a href="#tentangkami" class="btn btn-primary">Get Started <i
-                                    class="ri-arrow-right-line align-middle ms-1"></i></a>
+                            <div class="d-flex gap-2 justify-content-center mt-4">
+                                <a href="#tentangkami" class="btn btn-primary">Get Started <i
+                                        class="ri-arrow-right-line align-middle ms-1"></i></a>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
+                    <div data-aos="fade-up" data-aos-duration="1500" class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
                         <div class="demo-img-patten-top d-none d-sm-block">
                             <img src="{{ asset('') }}assets/images/landing/img-pattern.png" class="d-block img-fluid"
                                 alt="...">
@@ -147,7 +150,7 @@
 
     <!-- start services -->
     <section class="section" id="tentangkami">
-        <div class="container">
+        <div data-aos="fade-down" data-aos-duration="2500" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
@@ -160,7 +163,7 @@
             </div>
             <!-- end row -->
 
-            <div class="row g-3">
+            {{-- <div class="row g-3">
                 <div class="col-lg-4">
                     <div class="d-flex p-3">
                         <div class="flex-shrink-0 me-3">
@@ -351,7 +354,7 @@
                     </div>
                 </div>
                 <!-- end col -->
-            </div>
+            </div> --}}
             <!-- end row -->
         </div>
         <!-- end container -->
@@ -411,7 +414,7 @@
     <!-- end features -->
     <!-- start features -->
     <section class="section">
-        <div class="container">
+        <div data-aos="fade-up-right" data-aos-duration="2000" class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="text-muted">
@@ -567,7 +570,7 @@
     <!-- end features -->
     <!-- start counter -->
     <section class="py-5 position-relative bg-light">
-        <div class="container">
+        <div data-aos="fade-right" class="container">
             <div class="row text-center gy-4">
                 <div class="col-lg-3 col-6">
                     <div>
@@ -608,7 +611,7 @@
 
     <!-- start Work Process -->
     <section class="section">
-        <div class="container">
+        <div data-aos="fade-up-left" data-aos-duration="3000" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
@@ -681,7 +684,7 @@
     <!-- end Work Process -->
     <!-- Blog Section -->
     <section class="section bg-light" id="blog">
-        <div class="container">
+        <div data-aos-duration="2000" data-aos="fade-right" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
@@ -706,7 +709,9 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->title }}</h5>
-                                <p class="text-muted mb-2">{!! Str::limit($item->body, 150) !!}...</p>
+                                <div class="text-muted mb-2">
+                                    {!! Str::limit($item->body, 150) !!}
+                                </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya..
                                     <i class="ri-arrow-right-up-line"></i></a>
@@ -722,7 +727,7 @@
     <!-- end Blog Section -->
     <!-- start contact -->
     <section class="section" id="contact">
-        <div class="container">
+        <div data-aos-duration="2000" data-aos="fade-left" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">

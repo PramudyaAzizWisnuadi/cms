@@ -25,6 +25,8 @@
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- custom Css-->
         <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" />
+        <!-- aos css -->
+        <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" />
 
         <style>
             .theme-toggle {
@@ -48,9 +50,9 @@
                 <div class="container">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <img src="{{ asset('assets/images/logo-md-group.jpg') }}" class="card-logo card-logo-dark"
-                            alt="logo dark" width="50" height="30">
+                            alt="logo dark" width="60" height="35">
                         <img src="{{ asset('assets/images/logo-md-group.jpg') }}" class="card-logo card-logo-light"
-                            alt="logo light" width="50" height="30">
+                            alt="logo light" width="60" height="35">
                     </a>
                     <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -272,6 +274,8 @@
 
         <!-- landing init -->
         <script src="{{ asset('assets/js/pages/landing.init.js') }}"></script>
+        <!-- aos js -->
+        <script src="{{ asset('assets/libs/aos/aos.js') }}"></script>
         <script>
             function toggleTheme() {
                 const htmlElement = document.documentElement;
@@ -294,6 +298,9 @@
                 const themeToggle = document.getElementById('theme-toggle');
                 themeToggle.checked = savedTheme === 'dark';
             });
+        </script>
+        <script>
+            AOS.init();
         </script>
     </body>
 
