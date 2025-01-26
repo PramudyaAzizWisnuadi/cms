@@ -359,7 +359,7 @@
     <!-- end Tentang Kami -->
 
     <!-- start features -->
-    <section class="section bg-light py-5" id="features">
+    {{-- <section class="section bg-light py-5" id="tentangkami">
         <div class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-6 col-sm-7 mx-auto">
@@ -407,7 +407,7 @@
             <!-- end row -->
         </div>
         <!-- end container -->
-    </section>
+    </section> --}}
     <!-- end features -->
     <!-- start features -->
     <section class="section">
@@ -490,11 +490,6 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="index.html" class="btn btn-primary">Learn More <i
-                                    class="ri-arrow-right-line align-middle ms-1"></i></a>
                         </div>
                     </div>
                 </div>

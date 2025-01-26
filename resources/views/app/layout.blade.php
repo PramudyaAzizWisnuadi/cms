@@ -76,7 +76,7 @@
                                 </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
-                                        href=" {{ route('home') }}#contact">Contact</a>
+                                        href=" {{ route('home') }}#contact">Kontak</a>
                                 </li>
                             @endif
                             @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
@@ -91,7 +91,7 @@
                                 </li> --}}
 
                                 <li class="nav-item">
-                                    <a class="nav-link fs-15 fw-semibold" href="#contact">Contact</a>
+                                    <a class="nav-link fs-15 fw-semibold" href="#contact">Kontak</a>
                                 </li>
                             @endif
                             <li class="nav-item">
@@ -148,7 +148,7 @@
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="#hero">Home</a></li>
                                                 <li><a href="#tentangkami">Tentang Kami</a></li>
-                                                <li><a href="#contact">Contact</a></li>
+                                                <li><a href="#contact">Kontak</a></li>
                                                 <li><a href="{{ route('post.list') }}">Blog</a></li>
                                         </div>
                                     @endif
@@ -157,7 +157,7 @@
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="{{ route('home') }}#hero">Home</a></li>
                                                 <li><a href="{{ route('home') }}#tentangkami">Tentang Kami</a></li>
-                                                <li><a href="{{ route('home') }}#contact">Contact</a></li>
+                                                <li><a href="{{ route('home') }}#contact">Kontak</a></li>
                                                 <li><a href="{{ route('post.list') }}">Blog</a></li>
                                         </div>
                                     @endif
@@ -178,14 +178,14 @@
                                     @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
                                         <div class="text-muted mt-3">
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
-                                                <li><a href="#contact">Contact</a></li>
+                                                <li><a href="#contact">Kontak</a></li>
                                             </ul>
                                         </div>
                                     @endif
                                     @if (!request()->routeIs('home'))
                                         <div class="text-muted mt-3">
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
-                                                <li><a href="{{ route('home') }}#contact">Contact</a></li>
+                                                <li><a href="{{ route('home') }}#contact">Kontak</a></li>
                                             </ul>
                                         </div>
                                     @endif
