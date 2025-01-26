@@ -17,7 +17,7 @@ class PostController extends Controller
             $query->where('category_id', $request->input('category'));
         }
 
-        $posts = $query->paginate(5); // Gunakan query builder yang sudah diinisialisasi
+        $posts = $query->paginate(4); // Gunakan query builder yang sudah diinisialisasi
         $categories = Category::all(); // Ambil semua kategori
         $sosial = Sosial::first();
         return view('blog.list', compact('posts', 'categories', 'sosial'));

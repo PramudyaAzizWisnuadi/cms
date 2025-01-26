@@ -70,10 +70,10 @@
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}#tentangkami">Tentang Kami</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}#features">Features</a>
-                                </li>
+                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}#contact">Contact</a>
@@ -86,9 +86,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#tentangkami">Tentang Kami</a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#features">Features</a>
-                                </li>
+                                </li> --}}
 
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#contact">Contact</a>
@@ -148,8 +148,8 @@
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="#hero">Home</a></li>
                                                 <li><a href="#tentangkami">Tentang Kami</a></li>
-                                                <li><a href="#features">Features</a></li>
                                                 <li><a href="#contact">Contact</a></li>
+                                                <li><a href="{{ route('post.list') }}">Blog</a></li>
                                         </div>
                                     @endif
                                     @if (!request()->routeIs('home'))
@@ -157,8 +157,8 @@
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="{{ route('home') }}#hero">Home</a></li>
                                                 <li><a href="{{ route('home') }}#tentangkami">Tentang Kami</a></li>
-                                                <li><a href="{{ route('home') }}#features">Features</a></li>
                                                 <li><a href="{{ route('home') }}#contact">Contact</a></li>
+                                                <li><a href="{{ route('post.list') }}">Blog</a></li>
                                         </div>
                                     @endif
                                 </div>
