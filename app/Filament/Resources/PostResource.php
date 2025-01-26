@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Models\Tag;
 use Filament\Forms;
 use App\Models\Post;
+use App\Models\User;
 use Filament\Tables;
 use Filament\Forms\Set;
 use Filament\Forms\Form;
@@ -14,6 +15,7 @@ use Filament\Resources\Resource;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\PostResource\Pages;
@@ -63,11 +65,13 @@ class PostResource extends Resource
                         'published' => 'Published',
                     ])
                     ->required(),
-                Forms\Components\FileUpload::make('thumbnail')
+                FileUpload::make('thumbnail')
                     ->image()
                     ->directory('thumbnails')
                     ->visibility('public')
-                    ->nullable(),
+                    ->nullable()
+                    ->maxSize(1024) // Set max size to 1MB
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']), // Set accepted file types
             ]);
     }
 
@@ -94,6 +98,10 @@ class PostResource extends Resource
                         'draft' => 'Draft',
                         'published' => 'Published',
                     ]),
+                SelectFilter::make('author_id')
+                    ->label('Author')
+                    ->relationship('author', 'name')
+                    ->options(User::all()->pluck('name', 'id')->toArray()),
 
             ])
             ->actions([
