@@ -684,8 +684,8 @@
     <!-- end Work Process -->
     <!-- Blog Section -->
     <section class="section bg-light" id="blog">
-        <div data-aos-duration="2000" data-aos="fade-right" class="container">
-            <div class="row justify-content-center">
+        <div class="container">
+            <div data-aos-duration="1500" data-aos="fade-right" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Our <span class="text-danger">Blog</span></h3>
@@ -697,7 +697,7 @@
                 </div>
             </div>
             <!-- end row -->
-            <div class="row">
+            <div data-aos-duration="3000" data-aos="fade-left" class="row">
                 @foreach ($data as $item)
                     <div class="col-lg-3 col-sm-6">
                         <div class="card overflow-hidden blog-grid-card">
@@ -727,8 +727,8 @@
     <!-- end Blog Section -->
     <!-- start contact -->
     <section class="section" id="contact">
-        <div data-aos-duration="2000" data-aos="fade-left" class="container">
-            <div class="row justify-content-center">
+        <div class="container">
+            <div data-aos-duration="2000" data-aos="fade-down-left" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Hubungi Kami</h3>
@@ -742,7 +742,7 @@
             </div>
             <!-- end row -->
 
-            <div class="row gy-4">
+            <div data-aos-duration="3000" data-aos="fade-up-right" class="row gy-4">
                 <div class="col-lg-4">
                     <div>
                         <div class="mt-4">
