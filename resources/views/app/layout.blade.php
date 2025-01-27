@@ -291,6 +291,25 @@
         <!-- aos js -->
         <script src="{{ asset('assets/libs/aos/aos.js') }}"></script>
         <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                AOS.init({
+                    offset: window.innerWidth < 768 ? 50 : 120, // Sesuaikan offset untuk perangkat mobile
+                    duration: window.innerWidth < 768 ? 400 : 800, // Sesuaikan durasi untuk perangkat mobile
+                    easing: 'ease-in-out',
+                    disable: 'mobile' // Nonaktifkan AOS pada perangkat mobile
+                });
+            });
+
+            window.addEventListener('resize', function() {
+                AOS.init({
+                    offset: window.innerWidth < 768 ? 50 : 120, // Sesuaikan offset untuk perangkat mobile
+                    duration: window.innerWidth < 768 ? 400 : 800, // Sesuaikan durasi untuk perangkat mobile
+                    easing: 'ease-in-out',
+                    disable: 'mobile' // Nonaktifkan AOS pada perangkat mobile
+                });
+            });
+        </script>
+        <script>
             function toggleTheme() {
                 const htmlElement = document.documentElement;
                 const currentTheme = htmlElement.getAttribute('data-bs-theme');

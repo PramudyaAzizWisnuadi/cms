@@ -92,7 +92,14 @@
                         <!-- Swiper -->
                         <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
+                                @foreach ($logo as $l)
+                                    <div class="swiper-slide">
+                                        <div class="logo-kami">
+                                            <img src="{{ asset('storage/' . $l->image) }}" alt="client-img">
+                                        </div>
+                                    </div>
+                                @endforeach
+                                {{-- <div class="swiper-slide">
                                     <div class="logo-kami">
                                         <img src="{{ asset('assets/images/Logo Olive.svg') }}" alt="client-img">
                                     </div>
@@ -131,7 +138,7 @@
                                     <div class="logo-kami">
                                         <img src="{{ asset('assets/images/Logo Utama Eight.png') }}" alt="client-img">
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
