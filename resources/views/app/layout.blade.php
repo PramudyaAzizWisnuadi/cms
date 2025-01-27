@@ -24,13 +24,27 @@
         <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- custom Css-->
-        <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- aos css -->
         <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" />
 
         <style>
             .theme-toggle {
                 cursor: pointer;
+            }
+
+            .logo-kami img {
+                width: 150px;
+                /* Atur ukuran lebar gambar sesuai kebutuhan Anda */
+                height: 150px;
+                /* Atur ukuran tinggi gambar sesuai kebutuhan Anda */
+                object-fit: contain;
+                /* Pertahankan rasio aspek gambar */
+                display: block;
+                margin: 0 auto;
+                /* Pusatkan gambar secara horizontal */
+                padding: 1px;
+                /* Atur jarak antara gambar dan border */
             }
         </style>
         <script>

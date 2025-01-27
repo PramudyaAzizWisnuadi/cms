@@ -80,7 +80,7 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
-                Tables\Columns\TextColumn::make('slug')->sortable()->searchable(),
+                // Tables\Columns\TextColumn::make('slug')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('author.name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('category.name')->sortable()->searchable(),
                 Tables\Columns\TextColumn::make('status')

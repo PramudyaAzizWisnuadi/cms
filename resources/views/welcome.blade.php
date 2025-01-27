@@ -3,22 +3,17 @@
 @section('konten')
     <!-- start hero section -->
     <section class="section pb-0 hero-section" id="hero">
-        <div class="bg-overlay bg-overlay-pattern"></div>
-        <div class="container">
+        <div class="bg-overlay bg-overlay-pattern">
+            {{-- <img src="{{ asset('assets/images/logo-md-group.jpg') }}" alt=""> --}}
+        </div>
+        <div class="container mb-10">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-sm-10">
                     <div class="text-center mt-lg-5 pt-5">
                         <div data-aos="zoom-in" data-aos-duration="2000" class="display-6 fw-bold mb-3 lh-base">
                             {!! convertRelativePathsToAbsolute($landingpage->home) !!}
                         </div>
-                        {{-- <h1 class="display-6 fw-bold mb-3 lh-base">A better way to fulfill your daily needs with
-                            <span class="text-danger">MD </span>
-                            <span class="text-success">Group </span>
-                        </h1> --}}
                         <div data-aos="zoom-in-up"data-aos-duration="2500">
-                            <p class="lead text-muted lh-base">Velzon is a fully responsive, multipurpose and
-                                premium Bootstrap 5 Admin & Dashboard Template built in multiple frameworks.</p>
-
                             <div class="d-flex gap-2 justify-content-center mt-4">
                                 <a href="#tentangkami" class="btn btn-primary">Get Started <i
                                         class="ri-arrow-right-line align-middle ms-1"></i></a>
@@ -75,12 +70,10 @@
         </div>
         <!-- end container -->
         <div class="position-absolute start-0 end-0 bottom-0 hero-shape-svg">
-            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
-                viewBox="0 0 1440 120">
-                <g mask="url(&quot;#SvgjsMask1003&quot;)" fill="none">
-                    <path d="M 0,118 C 288,98.6 1152,40.4 1440,21L1440 140L0 140z">
-                    </path>
-                </g>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,288L60,282.7C120,277,240,267,360,266.7C480,267,600,277,720,288C840,299,960,309,1080,293.3C1200,277,1320,235,1380,213.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
+                </path>
             </svg>
         </div>
         <!-- end shape -->
@@ -94,46 +87,49 @@
                 <div class="col-lg-12">
 
                     <div class="text-center mt-5">
-                        <h5 class="fs-20">Trusted <span class="text-primary text-decoration-underline">by</span> the
-                            world's best</h5>
+                        <h5 class="fs-20">Bagian dari kami :</h5>
 
                         <!-- Swiper -->
                         <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/amazon.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Olive.svg') }}" alt="client-img">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/walmart.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo MD Mall New.png') }}" alt="client-img">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/lenovo.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Holy Kids.png') }}" alt="client-img">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/paypal.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Utama Eight.png') }}" alt="client-img">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/shopify.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Olive.svg') }}" alt="client-img">
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="client-images">
-                                        <img src="{{ asset('') }}assets/images/clients/verizon.svg" alt="client-img"
-                                            class="mx-auto img-fluid d-block">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo MD Mall New.png') }}" alt="client-img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Holy Kids.png') }}" alt="client-img">
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="logo-kami">
+                                        <img src="{{ asset('assets/images/Logo Utama Eight.png') }}" alt="client-img">
                                     </div>
                                 </div>
                             </div>
@@ -708,9 +704,9 @@
                                 @endif
                             </div>
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->title }}</h5>
+                                <h5 class="card-title">{{ Str::limit($item->title, 20) }}</h5>
                                 <div class="text-muted mb-2">
-                                    {!! Str::limit($item->body, 150) !!}
+                                    {!! Str::limit($item->body, 100) !!}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya..
