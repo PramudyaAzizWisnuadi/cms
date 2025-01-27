@@ -45,6 +45,28 @@
                 /* Pusatkan gambar secara horizontal */
                 padding: 1px;
                 /* Atur jarak antara gambar dan border */
+
+
+            }
+
+            .form-check-input:checked {
+                background-color: #40a000;
+            }
+
+            .form-check-input::before {
+                content: '';
+                position: absolute;
+                width: 1.5em;
+                height: 1.5em;
+                background-color: #cacaca;
+                border-radius: 50%;
+                top: 0;
+                left: 0;
+                transition: transform 0.3s;
+            }
+
+            .form-check-input:checked::before {
+                transform: translateX(1em);
             }
         </style>
         <script>
@@ -64,9 +86,9 @@
                 <div class="container">
                     <a class="navbar-brand" href="{{ route('home') }}">
                         <img src="{{ asset('assets/images/logo-md-group.jpg') }}" class="card-logo card-logo-dark"
-                            alt="logo dark" width="60" height="35">
+                            alt="logo dark" width="70" height="40">
                         <img src="{{ asset('assets/images/logo-md-group.jpg') }}" class="card-logo card-logo-light"
-                            alt="logo light" width="60" height="35">
+                            alt="logo light" width="70" height="40">
                     </a>
                     <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -75,7 +97,7 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0" id="navbar-example">
                             @if (!request()->routeIs('home'))
                                 <li class="nav-item">
 
@@ -114,22 +136,23 @@
                                 <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('post.list', 'posts.show', 'posts.search') || request()->is('blog*') ? 'active' : '' }}"
                                     href="{{ route('post.list') }}">Blog</a>
                             </li>
+                            <li class="nav-item">
+                                <div class="d-flex nav-link fs-15 fw-semibold">
+                                    <i class="ri-sun-line me-1"></i>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="theme-toggle"
+                                            onclick="toggleTheme()">
+                                    </div>
+                                    <i class="ms-1 ri-moon-line"></i>
+                                </div>
+                            </li>
                         </ul>
 
                     </div>
-                    <ul class="navbar-nav ms-auto">
+                    {{-- <ul class="navbar-nav ms-auto">
                         <!-- Other nav items -->
-                        <li class="nav-item">
-                            <div class="d-flex align-items-center">
-                                <i class="ri-sun-line me-2"></i>
-                                <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" id="theme-toggle"
-                                        onclick="toggleTheme()">
-                                </div>
-                                <i class="ri-moon-line"></i>
-                            </div>
-                        </li>
-                    </ul>
+
+                    </ul> --}}
                 </div>
             </nav>
             <!-- end navbar -->
@@ -143,7 +166,11 @@
                         <div class="col-lg-4 mt-4">
                             <div>
                                 <div>
-                                    <img src="{{ asset('assets/images/logo-md-group.jpg') }}" alt="logo light"
+                                    <img class="card-logo card-logo-dark"
+                                        src="{{ asset('assets/images/logo-md-group.jpg') }}" alt="logo light"
+                                        height="50">
+                                    <img class="card-logo card-logo-light"
+                                        src="{{ asset('assets/images/logo-md-group-putih.png') }}" alt="logo drak"
                                         height="50">
                                 </div>
                                 <div class=mt-4 fs-13">

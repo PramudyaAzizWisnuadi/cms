@@ -10,10 +10,10 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-sm-10">
                     <div class="text-center mt-lg-5 pt-5">
-                        <div data-aos="zoom-in" data-aos-duration="2000" class="display-6 fw-bold mb-3 lh-base">
+                        <div data-aos="zoom-in" data-aos-duration="1000" class="display-6 fw-bold mb-3 lh-base">
                             {!! convertRelativePathsToAbsolute($landingpage->home) !!}
                         </div>
-                        <div data-aos="zoom-in-up"data-aos-duration="2500">
+                        <div data-aos="zoom-in-up"data-aos-duration="1500">
                             <div class="d-flex gap-2 justify-content-center mt-4">
                                 <a href="#tentangkami" class="btn btn-primary">Get Started <i
                                         class="ri-arrow-right-line align-middle ms-1"></i></a>
@@ -22,7 +22,7 @@
 
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="1500" class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
+                    <div data-aos="fade-up" data-aos-duration="1000" class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
                         <div class="demo-img-patten-top d-none d-sm-block">
                             <img src="{{ asset('') }}assets/images/landing/img-pattern.png" class="d-block img-fluid"
                                 alt="...">
@@ -153,7 +153,7 @@
 
     <!-- start services -->
     <section class="section" id="tentangkami">
-        <div data-aos="fade-down" data-aos-duration="2500" class="container">
+        <div data-aos="fade-down" data-aos-duration="1000" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
@@ -417,7 +417,7 @@
     <!-- end features -->
     <!-- start features -->
     <section class="section">
-        <div data-aos="fade-up-right" data-aos-duration="2000" class="container">
+        <div data-aos="fade-up-right" data-aos-duration="1000" class="container">
             <div class="row align-items-center gy-4">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="text-muted">
@@ -614,7 +614,7 @@
 
     <!-- start Work Process -->
     <section class="section">
-        <div data-aos="fade-up-left" data-aos-duration="3000" class="container">
+        <div data-aos="fade-up-left" data-aos-duration="1000" class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
@@ -688,7 +688,7 @@
     <!-- Blog Section -->
     <section class="section bg-light" id="blog">
         <div class="container">
-            <div data-aos-duration="1500" data-aos="fade-right" class="row justify-content-center">
+            <div data-aos-duration="1000" data-aos="fade-right" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Our <span class="text-danger">Blog</span></h3>
@@ -700,7 +700,7 @@
                 </div>
             </div>
             <!-- end row -->
-            <div data-aos-duration="3000" data-aos="fade-left" class="row">
+            <div data-aos-duration="1000" data-aos="fade-left" class="row">
                 @foreach ($data as $item)
                     <div class="col-lg-3 col-sm-6">
                         <div class="card overflow-hidden blog-grid-card">
@@ -731,7 +731,7 @@
     <!-- start contact -->
     <section class="section" id="contact">
         <div class="container">
-            <div data-aos-duration="2000" data-aos="fade-down-left" class="row justify-content-center">
+            <div data-aos-duration="1000" data-aos="fade-down-left" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Hubungi Kami</h3>
@@ -745,7 +745,7 @@
             </div>
             <!-- end row -->
 
-            <div data-aos-duration="3000" data-aos="fade-up-right" class="row gy-4">
+            <div data-aos-duration="1000" data-aos="fade-up-right" class="row gy-4">
                 <div class="col-lg-4">
                     <div>
                         <div class="mt-4">
