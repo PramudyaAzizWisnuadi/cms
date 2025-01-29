@@ -66,7 +66,12 @@
             }
 
             .form-check-input:checked::before {
-                transform: translateX(1em);
+                transform: translateX(0.5em);
+            }
+
+            .bg-overlay {
+                background-image: url("{{ asset('assets/images/uwraurug.png') }}");
+
             }
         </style>
         <script>
@@ -143,7 +148,7 @@
                                         <input class="form-check-input" type="checkbox" id="theme-toggle"
                                             onclick="toggleTheme()">
                                     </div>
-                                    <i class="ms-1 ri-moon-line"></i>
+                                    <i class="ri-moon-line"></i>
                                 </div>
                             </li>
                         </ul>

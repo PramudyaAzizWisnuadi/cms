@@ -3,10 +3,8 @@
 @section('konten')
     <!-- start hero section -->
     <section class="section pb-0 hero-section" id="hero">
-        <div class="bg-overlay bg-overlay-pattern">
-            {{-- <img src="{{ asset('assets/images/logo-md-group.jpg') }}" alt=""> --}}
-        </div>
-        <div class="container mb-10">
+        <div class="bg-overlay bg-overlay-pattern"></div>
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-sm-10">
                     <div class="text-center mt-lg-5 pt-5">
@@ -22,22 +20,22 @@
 
                     </div>
 
-                    <div data-aos="fade-up" data-aos-duration="1000" class="mt-4 mt-sm-5 pt-sm-5 mb-sm-n5 demo-carousel">
+                    <div data-aos="fade-up" data-aos-duration="1000" class="mt-4 mt-sm-5 pt-sm-5 demo-carousel">
                         <div class="demo-img-patten-top d-none d-sm-block">
-                            <img src="{{ asset('') }}assets/images/landing/img-pattern.png" class="d-block img-fluid"
+                            <img src="{{ asset('assets/images/landing/img-pattern.png') }}" class="d-block img-fluid"
                                 alt="...">
                         </div>
                         <div class="demo-img-patten-bottom d-none d-sm-block">
-                            <img src="{{ asset('') }}assets/images/landing/img-pattern.png" class="d-block img-fluid"
+                            <img src="{{ asset('assets/images/landing/img-pattern.png') }}" class="d-block img-fluid"
                                 alt="...">
                         </div>
                         <div class="carousel slide carousel-fade" data-bs-ride="carousel">
-                            <div class="carousel-inner shadow-lg p-2 bg-white rounded">
+                            <div class="carousel-inner p-2 rounded">
                                 <div class="carousel-item active" data-bs-interval="2000">
-                                    <img src="{{ asset('') }}assets/images/demos/default.png" class="d-block w-100"
+                                    <img src="{{ asset('assets/images/testetst.png') }}" class="d-block w-100"
                                         alt="...">
                                 </div>
-                                <div class="carousel-item" data-bs-interval="2000">
+                                {{-- <div class="carousel-item" data-bs-interval="2000">
                                     <img src="{{ asset('') }}assets/images/demos/saas.png" class="d-block w-100"
                                         alt="...">
                                 </div>
@@ -60,7 +58,7 @@
                                 <div class="carousel-item" data-bs-interval="2000">
                                     <img src="{{ asset('') }}assets/images/demos/interactive.png" class="d-block w-100"
                                         alt="...">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -69,6 +67,7 @@
             <!-- end row -->
         </div>
         <!-- end container -->
+        <!-- start shape -->
         <div class="position-absolute start-0 end-0 bottom-0 hero-shape-svg">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
                 <path fill="#ffffff" fill-opacity="1"
@@ -87,7 +86,8 @@
                 <div class="col-lg-12">
 
                     <div class="text-center mt-5">
-                        <h5 class="fs-20">Bagian dari kami :</h5>
+                        <h5 class="fs-20">Bagian dari <span class="text-danger">
+                                MD </span> <span class="text-success">Group</span>:</h5>
 
                         <!-- Swiper -->
                         <div class="swiper trusted-client-slider mt-sm-5 mt-4 mb-sm-5 mb-4" dir="ltr">
@@ -99,46 +99,7 @@
                                         </div>
                                     </div>
                                 @endforeach
-                                {{-- <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Olive.svg') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo MD Mall New.png') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Holy Kids.png') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Utama Eight.png') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Olive.svg') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo MD Mall New.png') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Holy Kids.png') }}" alt="client-img">
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="logo-kami">
-                                        <img src="{{ asset('assets/images/Logo Utama Eight.png') }}" alt="client-img">
-                                    </div>
-                                </div> --}}
+
                             </div>
                         </div>
                     </div>
@@ -417,8 +378,15 @@
     <!-- end features -->
     <!-- start features -->
     <section class="section">
-        <div data-aos="fade-up-right" data-aos-duration="1000" class="container">
-            <div class="row align-items-center gy-4">
+        {{-- <div class="position-absolute start-0 end-0 hero-shape-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#273036" fill-opacity="1"
+                    d="M0,160L0,160L36.9,160L36.9,64L73.8,64L73.8,288L110.8,288L110.8,128L147.7,128L147.7,96L184.6,96L184.6,128L221.5,128L221.5,128L258.5,128L258.5,288L295.4,288L295.4,32L332.3,32L332.3,32L369.2,32L369.2,224L406.2,224L406.2,128L443.1,128L443.1,96L480,96L480,192L516.9,192L516.9,192L553.8,192L553.8,160L590.8,160L590.8,128L627.7,128L627.7,32L664.6,32L664.6,224L701.5,224L701.5,32L738.5,32L738.5,256L775.4,256L775.4,96L812.3,96L812.3,192L849.2,192L849.2,128L886.2,128L886.2,192L923.1,192L923.1,288L960,288L960,64L996.9,64L996.9,224L1033.8,224L1033.8,96L1070.8,96L1070.8,128L1107.7,128L1107.7,288L1144.6,288L1144.6,96L1181.5,96L1181.5,32L1218.5,32L1218.5,256L1255.4,256L1255.4,128L1292.3,128L1292.3,288L1329.2,288L1329.2,96L1366.2,96L1366.2,224L1403.1,224L1403.1,96L1440,96L1440,320L1403.1,320L1403.1,320L1366.2,320L1366.2,320L1329.2,320L1329.2,320L1292.3,320L1292.3,320L1255.4,320L1255.4,320L1218.5,320L1218.5,320L1181.5,320L1181.5,320L1144.6,320L1144.6,320L1107.7,320L1107.7,320L1070.8,320L1070.8,320L1033.8,320L1033.8,320L996.9,320L996.9,320L960,320L960,320L923.1,320L923.1,320L886.2,320L886.2,320L849.2,320L849.2,320L812.3,320L812.3,320L775.4,320L775.4,320L738.5,320L738.5,320L701.5,320L701.5,320L664.6,320L664.6,320L627.7,320L627.7,320L590.8,320L590.8,320L553.8,320L553.8,320L516.9,320L516.9,320L480,320L480,320L443.1,320L443.1,320L406.2,320L406.2,320L369.2,320L369.2,320L332.3,320L332.3,320L295.4,320L295.4,320L258.5,320L258.5,320L221.5,320L221.5,320L184.6,320L184.6,320L147.7,320L147.7,320L110.8,320L110.8,320L73.8,320L73.8,320L36.9,320L36.9,320L0,320L0,320Z">
+                </path>
+            </svg>
+        </div> --}}
+        <div class="container">
+            <div data-aos="fade-up-right" data-aos-duration="1000" class="row align-items-center gy-4">
                 <div class="col-lg-6 order-2 order-lg-1">
                     <div class="text-muted">
                         <h5 class="fs-12 text-uppercase text-success">Design</h5>
@@ -508,8 +476,7 @@
                 </div>
             </div>
             <!-- end row -->
-
-            <div class="row align-items-center mt-5 pt-lg-5 gy-4">
+            <div data-aos="fade-up-left" data-aos-duration="1000" class="row align-items-center mt-5 pt-lg-5 gy-4">
                 <div class="col-lg-6 col-sm-7 col-10 mx-auto">
                     <div>
                         <img src="{{ asset('') }}assets/images/landing/features/img-3.png" alt=""
