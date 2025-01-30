@@ -407,7 +407,7 @@
                                     {!! Str::limit($item->body, 75) !!}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
-                                    class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya..
+                                    class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya...
                                     <i class="ri-arrow-right-up-line"></i></a>
                             </div>
                         </div>
@@ -429,8 +429,6 @@
                         <div class="text-muted mb-4">
                             {!! convertRelativePathsToAbsolute($landingpage->kontak) !!}
                         </div>
-                        {{-- <p class="text-muted mb-4">Kami senang mendengar informasi, pertanyaan, kritik serta saran anda.
-                        </p> --}}
                     </div>
                 </div>
             </div>
