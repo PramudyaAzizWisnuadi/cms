@@ -95,8 +95,7 @@
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h1 class="mb-3 ff-secondary fw-bold lh-base">Tentang Kami</h1>
-                        <p class="text-muted">To achieve this, it would be necessary to have uniform grammar,
-                            pronunciation and more common words. If several languages coalesce the grammar</p>
+                        <div class="text-muted"> {!! convertRelativePathsToAbsolute($landingpage->tentangkami) !!}</div>
                     </div>
                 </div>
                 <!-- end col -->
