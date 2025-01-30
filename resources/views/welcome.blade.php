@@ -458,14 +458,16 @@
                                     <div class="mb-4">
                                         <label for="name" class="form-label fs-13">Nama</label>
                                         <input name="name" id="name" type="text"
-                                            class="form-control bg-light border-light" placeholder="Nama Anda*" required>
+                                            class="form-control bg-light border-light" placeholder="Nama Anda..."
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-4">
                                         <label for="email" class="form-label fs-13">Email</label>
                                         <input name="email" id="email" type="email"
-                                            class="form-control bg-light border-light" placeholder="Email Anda*" required>
+                                            class="form-control bg-light border-light" placeholder="Email Anda..."
+                                            required>
                                     </div>
                                 </div>
                             </div>
@@ -474,7 +476,7 @@
                                     <div class="mb-4">
                                         <label for="subject" class="form-label fs-13">Subjek</label>
                                         <input type="text" class="form-control bg-light border-light" id="subject"
-                                            name="subject" placeholder="Subject Anda..." required />
+                                            name="subject" placeholder="Subjek Anda..." required />
                                     </div>
                                 </div>
                             </div>
