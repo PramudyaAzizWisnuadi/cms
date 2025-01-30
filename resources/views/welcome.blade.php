@@ -404,7 +404,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ Str::limit($item->title, 20) }}</h5>
                                 <div class="text-muted mb-2">
-                                    {!! Str::limit($item->body, 100) !!}
+                                    {!! Str::limit($item->body, 75) !!}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya..

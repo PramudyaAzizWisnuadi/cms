@@ -70,7 +70,7 @@
             }
 
             .bg-overlay {
-                background-image: url("{{ asset('assets/images/uwraurug.png') }}");
+                background-image: url("{{ asset('assets/images/fotodepan.jpg') }}");
 
             }
 
