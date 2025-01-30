@@ -73,7 +73,35 @@
                 background-image: url("{{ asset('assets/images/uwraurug.png') }}");
 
             }
+
+            .responsive-iframe {
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-bottom: 56.25%;
+                /* 16:9 aspect ratio */
+            }
+
+            .responsive-iframe iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
         </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const iframes = document.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('responsive-iframe');
+                    iframe.parentNode.insertBefore(wrapper, iframe);
+                    wrapper.appendChild(iframe);
+                });
+            });
+        </script>
         <script>
             // Set theme on page load based on localStorage
             (function() {
@@ -129,10 +157,6 @@
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#tentangkami">Tentang Kami</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link fs-15 fw-semibold" href="#features">Features</a>
-                                </li> --}}
-
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#contact">Kontak</a>
                                 </li>
@@ -154,10 +178,6 @@
                         </ul>
 
                     </div>
-                    {{-- <ul class="navbar-nav ms-auto">
-                        <!-- Other nav items -->
-
-                    </ul> --}}
                 </div>
             </nav>
             <!-- end navbar -->
