@@ -28,69 +28,6 @@
         <!-- aos css -->
         <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" />
 
-        <style>
-            .theme-toggle {
-                cursor: pointer;
-            }
-
-            .logo-kami img {
-                width: 150px;
-                /* Atur ukuran lebar gambar sesuai kebutuhan Anda */
-                height: 150px;
-                /* Atur ukuran tinggi gambar sesuai kebutuhan Anda */
-                object-fit: contain;
-                /* Pertahankan rasio aspek gambar */
-                display: block;
-                margin: 0 auto;
-                /* Pusatkan gambar secara horizontal */
-                padding: 1px;
-                /* Atur jarak antara gambar dan border */
-
-
-            }
-
-            .form-check-input:checked {
-                background-color: #40a000;
-            }
-
-            .form-check-input::before {
-                content: '';
-                position: absolute;
-                width: 1.5em;
-                height: 1.5em;
-                background-color: #cacaca;
-                border-radius: 50%;
-                top: 0;
-                left: 0;
-                transition: transform 0.3s;
-            }
-
-            .form-check-input:checked::before {
-                transform: translateX(0.5em);
-            }
-
-            .bg-overlay {
-                background-image: url("{{ asset('assets/images/fotodepan.jpg') }}");
-
-            }
-
-            .responsive-iframe {
-                position: relative;
-                width: 100%;
-                height: 0;
-                padding-bottom: 56.25%;
-                /* 16:9 aspect ratio */
-            }
-
-            .responsive-iframe iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border: 0;
-            }
-        </style>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const iframes = document.querySelectorAll('iframe');
