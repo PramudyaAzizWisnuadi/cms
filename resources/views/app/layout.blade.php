@@ -26,7 +26,7 @@
         <!-- custom Css-->
         <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- aos css -->
-        <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" type="text/css" />
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
