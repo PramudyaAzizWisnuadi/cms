@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\LogoResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\LogoResource\RelationManagers;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class LogoResource extends Resource
 {
@@ -27,12 +28,30 @@ class LogoResource extends Resource
     {
         return $form
             ->schema([
+                FileUpload::make('image')
+                    ->image()
+                    ->required()
+                    ->disk('public'),
+                FileUpload::make('thumbnail')
+                    ->image()
+                    ->required()
+                    ->disk('public'),
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255),
-                FileUpload::make('image')
-                    ->image()
+                TinyEditor::make('deskripsi')
                     ->required(),
+                TextInput::make('wa')
+                    ->maxLength(255),
+                TextInput::make('instagram')
+                    ->maxLength(255),
+                TextInput::make('tiktok')
+                    ->maxLength(255),
+                TextInput::make('facebook')
+                    ->maxLength(255),
+                TextInput::make('alamat')
+                    ->maxLength(255),
+                TextInput::make('maps'),
             ]);
     }
 
@@ -42,7 +61,15 @@ class LogoResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image')
                     ->label('Logo'),
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->label('Gambar'),
                 Tables\Columns\TextColumn::make('name')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('wa')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('instagram')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('tiktok')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('facebook')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('alamat')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('maps')->sortable()->searchable(),
             ])
             ->filters([
                 //

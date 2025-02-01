@@ -71,12 +71,13 @@
                                 @foreach ($logo as $l)
                                     <div class="swiper-slide">
                                         <div class="logo-kami">
-                                            <img src="{{ asset('storage/' . $l->image) }}" alt="client-img">
+                                            <img src="{{ asset('storage/' . $l->image) }}" alt="client-img"
+                                                data-bs-toggle="modal" data-bs-target="#logoModal{{ $l->id }}">
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
+
                         </div>
                     </div>
 
@@ -308,7 +309,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h3 class="mb-3 fw-bold">Our Work Process</h3>
+                        <h3 class="mb-3 fw-bold">Visi & Misi</h3>
                         <p class="text-muted mb-4">In an ideal world this website wouldn’t exist, a client
                             would
                             acknowledge the importance of having web copy before the Proin vitae ipsum vel ex
@@ -500,6 +501,77 @@
             </div>
             <!-- end row -->
         </div>
+        @foreach ($logo as $l)
+            <!-- Modal -->
+            <div class="modal modal-xl fade" id="logoModal{{ $l->id }}" tabindex="-1"
+                aria-labelledby="logoModalLabel{{ $l->id }}" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="avatar-md me-auto">
+                                <img src="{{ asset('storage/' . $l->image) }}" alt="" class="img-fluid">
+                            </div>
+                            <div class="image-container">
+                                <img src="{{ asset('storage/' . $l->thumbnail) }}" alt="" class="img-fluid">
+                            </div>
+                            <div class="modal-body text-muted">
+                                <div>
+                                    {!! convertRelativePathsToAbsolute($l->deskripsi) !!}
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="text-sm-end mt-3 mt-sm-0 me-auto">
+                                <ul class="list-inline mb-0 footer-social-link">
+                                    <li class="list-inline-item">
+                                        <a href="https://www.facebook.com/people/{{ $l->facebook }}/100088871923472/"
+                                            target="_blank" class="avatar-xs d-block">
+                                            <div class="avatar-title rounded-circle">
+                                                <i class="ri-facebook-fill"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://wa.me/{{ $l->wa }}/" target="_blank"
+                                            class="avatar-xs d-block">
+                                            <div class="avatar-title rounded-circle">
+                                                <i class="ri-whatsapp-fill"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a href="https://www.tiktok.com/{{ $l->tiktok }}/" target="_blank"
+                                            class="avatar-xs d-block">
+                                            <div class="avatar-title rounded-circle">
+                                                <i class="ri-tiktok-fill"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a target="_blank" href="https://www.instagram.com/{{ $l->instagram }}/"
+                                            class="avatar-xs d-block">
+                                            <div class="avatar-title rounded-circle">
+                                                <i class="ri-instagram-fill"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a target="_blank" href="{{ $l->maps }}" class="avatar-xs d-block">
+                                            <div class="avatar-title rounded-circle">
+                                                <i class="ri-map-pin-fill"></i>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button type="button" class="btn btn-danger mt-auto" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
         <script>
             function sendToWhatsApp(event) {
                 event.preventDefault();
