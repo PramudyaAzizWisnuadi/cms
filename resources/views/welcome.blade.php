@@ -129,7 +129,6 @@
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Visi & Misi</h3>
-                        <hr>
                         <h4 class="text-muted"> Visi </h4>
                         <div class="row text-center">
                         </div>
@@ -146,7 +145,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr>
+                    <hr class="hr hr-blurry" />
                 </div>
 
             </div>
