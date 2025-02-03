@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\LandingPageResource\Pages;
 use App\Filament\Resources\LandingPageResource\RelationManagers;
+use Faker\Core\File;
+use Filament\Forms\Components\FileUpload;
 use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 use Nette\Utils\Html;
 
@@ -26,6 +28,10 @@ class LandingPageResource extends Resource
     {
         return $form
             ->schema([
+                FileUpload::make('fotodepan')
+                    ->image()
+                    ->helperText('Ukuran gambar lanscape 800x600 pixel.')
+                    ->nullable(),
                 TinyEditor::make('home'),
                 TinyEditor::make('tentangkami'),
                 TinyEditor::make('blog'),
@@ -37,6 +43,8 @@ class LandingPageResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('fotodepan')
+                    ->label('Foto Depan'),
                 TextColumn::make('home')
                     ->limit(20),
                 TextColumn::make('tentangkami')

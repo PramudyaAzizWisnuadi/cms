@@ -73,7 +73,22 @@
     width: auto;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #ddd; /* Tambahkan border */
-    border-radius: 10px; /* Tambahkan border-radius jika diperlukan */
+    border: 2px solid #ddd;
 }
-
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+    .swiper-slide {
+        justify-content: center;
+    }
+}
+.process-card-visi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
