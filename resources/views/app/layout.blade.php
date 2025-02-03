@@ -135,11 +135,10 @@
                                         src="{{ asset('assets/images/logo-md-group-putih.png') }}" alt="logo drak"
                                         height="50">
                                 </div>
-                                <div class=mt-4 fs-13">
+                                <div class="mt-4 fs-13">
                                     <p>High Productivity & Technology</p>
-                                    <p class="ff-secondary">You can build any type of web application like eCommerce,
-                                        CRM, CMS, Project
-                                        management apps, Admin Panels, etc using Velzon.</p>
+                                    <p class="ff-secondary">Murah Setiap Hari.
+                                    </p>
                                 </div>
                             </div>
                         </div>

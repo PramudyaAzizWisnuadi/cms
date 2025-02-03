@@ -13,7 +13,7 @@
                         </div>
                         <div data-aos="zoom-in-up"data-aos-duration="1500">
                             <div class="d-flex gap-2 justify-content-center mt-4">
-                                <a href="#tentangkami" class="btn btn-primary">Get Started <i
+                                <a href="#tentangkami" class="btn btn-success">Get Started <i
                                         class="ri-arrow-right-line align-middle ms-1"></i></a>
                             </div>
                         </div>
@@ -94,11 +94,10 @@
     <section class="section bg-light" id="tentangkami">
         <div data-aos="fade-down" data-aos-duration="1000" class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 ">
+                <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h3 class="mb-3 fw-bold">Sejarah MD Group</h3>
+                        <h3 class="mb-3 fw-bold">Sejarah</h3>
                         <div class="mb-3 ff-secondary fw-bold lh-base text-muted">{!! convertRelativePathsToAbsolute($landingpage->tentangkami) !!}</div>
-
                     </div>
                 </div>
                 <!-- end col -->
@@ -106,7 +105,8 @@
                     @foreach ($timelines as $timeline)
                         <div class="timeline-item {{ $timeline->position }}">
                             <i class="icon {{ $timeline->icon }}"></i>
-                            <div class="date fs-13 text-muted">{{ $timeline->date->format('F Y') }}</div>
+                            <div class="date fs-13 text-muted">{{ \Carbon\Carbon::parse($timeline->date)->format('F Y') }}
+                            </div>
                             <div class="content">
                                 <h5 class="fs-14">{{ $timeline->title }}</h5>
                                 <p class="text-muted">{{ $timeline->description }}</p>
@@ -115,23 +115,13 @@
                     @endforeach
                 </div>
             </div>
-        </div>
-
-        <!-- end row -->
-        </div>
-        <!-- end container -->
-    </section>
-    <!-- end Tentang Kami -->
-    <!-- start Work Process -->
-    <section class="section bg-light-subtle">
-        <div data-aos="fade-up-left" data-aos-duration="1000" class="container">
-            <div class="row justify-content-center">
+            <!-- end row -->
+            <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Visi & Misi</h3>
-                        <h4 class="text-muted"> Visi </h4>
-                        <div class="row text-center">
-                        </div>
+                        <h4 class="text-muted">Visi</h4>
+                        <div class="row text-center"></div>
                         <div class="col d-flex justify-content-center align-items-center">
                             <div class="mt-4">
                                 <div class="avatar-sm icon-effect mx-auto mb-4">
@@ -147,15 +137,13 @@
                     </div>
                     <hr class="hr hr-blurry" />
                 </div>
-
             </div>
-
             <!-- end row -->
-
-            <div class="row text-center d-flex justify-content-center align-items-center">
-                <h4 class="text-muted mb-4"> Misi </h4>
+            <div data-aos="fade-up-right" data-aos-duration="1000"
+                class="row text-center d-flex justify-content-center align-items-center">
+                <h4 class="text-muted mb-4">Misi</h4>
                 @foreach ($misi as $item)
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div class="process-card mt-4">
                             <div class="avatar-sm icon-effect mx-auto mb-4">
                                 <div class="avatar-title bg-transparent text-success rounded-circle h1">
@@ -173,7 +161,7 @@
     </section>
     <!-- end Work Process -->
     <!-- Blog Section -->
-    <section class="section bg-light" id="blog">
+    <section class="section bg-light-subtle" id="blog">
         <div class="container">
             <div data-aos-duration="1000" data-aos="fade-right" class="row justify-content-center">
                 <div class="col-lg-8">
@@ -182,7 +170,6 @@
                         <div class="text-muted mb-4">
                             {!! convertRelativePathsToAbsolute($landingpage->blog) !!}
                         </div>
-                        {{-- <p class="text-muted mb-4">Temukan informasi promo, event, serta kegiatan seputar MD Group</p> --}}
                     </div>
                 </div>
             </div>
@@ -216,7 +203,7 @@
     </section>
     <!-- end Blog Section -->
     <!-- start contact -->
-    <section class="section bg-light-subtle" id="contact">
+    <section class="section bg-light" id="contact">
         <div class="container">
             <div data-aos-duration="1000" data-aos="fade-down-left" class="row justify-content-center">
                 <div class="col-lg-8">
@@ -243,6 +230,12 @@
                             <h5 class="fs-13 text-muted text-uppercase">Jam Buka :</h5>
                             <div class="fw-semibold"> Setiap Hari <br> 08.30 - 21.30</div>
                         </div>
+                        <div class="mt-4 ">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.341439280373!2d111.41148847499703!3d-6.968985793031613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7740e295171d81%3A0x40792cf899fa9be8!2sMD%20Mall%20Blora!5e0!3m2!1sid!2sid!4v1738570014948!5m2!1sid!2sid"
+                                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
                     </div>
                 </div>
                 <!-- end col -->
@@ -254,7 +247,7 @@
                                     <div class="mb-4">
                                         <label for="name" class="form-label fs-13">Nama</label>
                                         <input name="name" id="name" type="text"
-                                            class="form-control bg-light border-light" placeholder="Nama Anda..."
+                                            class="form-control bg-light-subtle border-light" placeholder="Nama Anda..."
                                             required>
                                     </div>
                                 </div>
@@ -262,7 +255,7 @@
                                     <div class="mb-4">
                                         <label for="email" class="form-label fs-13">Email</label>
                                         <input name="email" id="email" type="email"
-                                            class="form-control bg-light border-light" placeholder="Email Anda..."
+                                            class="form-control bg-light-subtle border-light" placeholder="Email Anda..."
                                             required>
                                     </div>
                                 </div>
@@ -271,8 +264,8 @@
                                 <div class="col-lg-12">
                                     <div class="mb-4">
                                         <label for="subject" class="form-label fs-13">Subjek</label>
-                                        <input type="text" class="form-control bg-light border-light" id="subject"
-                                            name="subject" placeholder="Subjek Anda..." required />
+                                        <input type="text" class="form-control bg-light-subtle border-light"
+                                            id="subject" name="subject" placeholder="Subjek Anda..." required />
                                     </div>
                                 </div>
                             </div>
@@ -280,7 +273,7 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="comments" class="form-label fs-13">Pesan</label>
-                                        <textarea name="comments" id="comments" rows="3" class="form-control bg-light border-light"
+                                        <textarea name="comments" id="comments" rows="3" class="form-control bg-light-subtle border-light"
                                             placeholder="Pesan Anda..." required></textarea>
                                     </div>
                                 </div>
@@ -288,7 +281,7 @@
                             <div class="row">
                                 <div class="col-lg-12 text-end">
                                     <input type="submit" id="submit" name="send"
-                                        class="submitBnt btn btn-primary" value="Kirim Pesan">
+                                        class="submitBnt btn btn-success" value="Kirim Pesan">
                                 </div>
                             </div>
                         </form>
