@@ -118,7 +118,7 @@
             <!-- end row -->
             <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center">
                 <div class="col-lg-8">
-                    <div class="text-center mb-5">
+                    <div class="text-center my-5">
                         <h3 class="mb-3 fw-bold">Visi & Misi</h3>
                         <h4 class="text-muted">Visi</h4>
                         <div class="row text-center"></div>
