@@ -208,7 +208,7 @@
             <div data-aos-duration="1000" data-aos="fade-down-left" class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h3 class="mb-3 fw-bold">Hubungi Kami</h3>
+                        <h3 class="mb-3 fw-bold">Kontak</h3>
                         <div class="text-muted mb-4">
                             {!! convertRelativePathsToAbsolute($landingpage->kontak) !!}
                         </div>
@@ -225,6 +225,10 @@
                             <div class="fw-semibold">Jl. Pemuda No.3, Kunden, Kec. Blora, Kabupaten Blora, Jawa Tengah,
                                 <br />58211
                             </div>
+                        </div>
+                        <div class="mt-4">
+                            <h5 class="fs-13 text-muted text-uppercase">Email :</h5>
+                            <div class="fw-semibold">{{ $sosial->email }}</div>
                         </div>
                         <div class="mt-4">
                             <h5 class="fs-13 text-muted text-uppercase">Jam Buka :</h5>
@@ -273,7 +277,7 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <label for="comments" class="form-label fs-13">Pesan</label>
-                                        <textarea name="comments" id="comments" rows="3" class="form-control bg-light-subtle border-light"
+                                        <textarea name="comments" id="comments" rows="7" class="form-control bg-light-subtle border-light"
                                             placeholder="Pesan Anda..." required></textarea>
                                     </div>
                                 </div>

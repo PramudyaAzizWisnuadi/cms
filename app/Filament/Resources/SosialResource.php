@@ -42,7 +42,7 @@ class SosialResource extends Resource
                 TextInput::make('youtube')
                     ->label('Youtube'),
                 TextInput::make('telegram')
-                    ->label('Telegram'),
+                    ->label('NPWP'),
                 TextInput::make('email')
                     ->label('Email'),
                 TextInput::make('tiktok')
@@ -67,7 +67,7 @@ class SosialResource extends Resource
                 TextColumn::make('youtube')
                     ->label('Youtube'),
                 TextColumn::make('telegram')
-                    ->label('Telegram'),
+                    ->label('NPWP'),
                 TextColumn::make('email')
                     ->label('Email'),
                 TextColumn::make('tiktok')

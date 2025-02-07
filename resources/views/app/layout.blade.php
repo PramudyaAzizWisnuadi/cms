@@ -137,7 +137,11 @@
                                 </div>
                                 <div class="mt-4 fs-13">
                                     <p>High Productivity & Technology</p>
-                                    <p class="ff-secondary">Murah Setiap Hari.
+                                    {{-- <p class="ff-secondary">NPWP :
+                                        {{ $sosial->telegram }}
+                                    </p> --}}
+                                    <p class="ff-secondary">Jl. Pemuda No.3, Kunden, Kec. Blora, Kabupaten Blora, Jawa
+                                        Tengah, 58211
                                     </p>
                                 </div>
                             </div>
@@ -206,7 +210,8 @@
                                 <p class="copy-rights mb-0">
                                     <script>
                                         document.write(new Date().getFullYear())
-                                    </script> © MD - Group
+                                    </script> © MD - Group | NPWP :
+                                    {{ $sosial->telegram }}
                                 </p>
                             </div>
                         </div>
