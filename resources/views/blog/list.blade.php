@@ -1,5 +1,5 @@
 @extends('app.layout')
-@section('title', 'List Post')
+@section('title', 'Blog')
 @section('konten')
     <div class="main-content">
 
