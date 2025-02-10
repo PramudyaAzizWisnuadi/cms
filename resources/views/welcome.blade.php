@@ -105,7 +105,8 @@
                     @foreach ($timelines as $timeline)
                         <div class="timeline-item {{ $timeline->position }}">
                             <i class="icon {{ $timeline->icon }}"></i>
-                            <div class="date fs-13 text-muted">{{ \Carbon\Carbon::parse($timeline->date)->format('F Y') }}
+                            <div class="date fs-13 text-muted">Tahun
+                                {{ \Carbon\Carbon::parse($timeline->date)->format('Y') }}
                             </div>
                             <div class="content">
                                 <h5 class="fs-14">{{ $timeline->title }}</h5>
