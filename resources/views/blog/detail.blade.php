@@ -46,7 +46,7 @@
                                     </div>
                                 @endif
                                 <div class="row mt-4">
-                                    <div class="col-lg-3">
+                                    <div class="col-lg-2">
                                         <h6 class="pb-1">Contributor By:</h6>
                                         <div class="d-flex gap-2 mb-3">
                                             <div class="flex-shrink-0">
