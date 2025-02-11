@@ -12,6 +12,8 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/logomd.ico') }}">
 
+        <!-- glightbox css -->
+        <link rel="stylesheet" href="{{ asset('assets/libs/glightbox/css/glightbox.min.css') }}">
         <!--Swiper slider css-->
         <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -78,16 +80,12 @@
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}#tentangkami">Tentang Kami</a>
                                 </li>
-                                {{-- <li class="nav-item">
-                                    <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
-                                        href=" {{ route('home') }}#features">Features</a>
-                                </li> --}}
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}#contact">Kontak</a>
                                 </li>
                             @endif
-                            @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
+                            @if (!request()->routeIs('post.list', 'posts.show', 'posts.search', 'galery.index', 'promosi.index'))
                                 <li class="nav-item">
                                     <a class="nav-link fs-15 fw-semibold" href="#hero">Home</a>
                                 </li>
@@ -101,6 +99,14 @@
                             <li class="nav-item">
                                 <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('post.list', 'posts.show', 'posts.search') || request()->is('blog*') ? 'active' : '' }}"
                                     href="{{ route('post.list') }}">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('promosi.index') ? 'active' : '' }} "
+                                    href="{{ route('promosi.index') }}">Promosi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('galery.index') ? 'active' : '' }} "
+                                    href="{{ route('galery.index') }}">Galery</a>
                             </li>
                             <li class="nav-item">
                                 <div class="d-flex nav-link fs-15 fw-semibold">
@@ -151,13 +157,15 @@
                             <div class="row">
                                 <div class="col-sm-4 mt-4">
                                     <h5 class="text-white mb-0">Menu</h5>
-                                    @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
+                                    @if (!request()->routeIs('post.list', 'posts.show', 'posts.search', 'galery.index', 'promosi.index'))
                                         <div class="text-muted mt-3">
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="#hero">Home</a></li>
                                                 <li><a href="#tentangkami">Tentang Kami</a></li>
                                                 <li><a href="#contact">Kontak</a></li>
                                                 <li><a href="{{ route('post.list') }}">Blog</a></li>
+                                                <li><a href="{{ route('promosi.index') }}">Promosi</a></li>
+                                                <li><a href="{{ route('galery.index') }}">Galery</a></li>
                                         </div>
                                     @endif
                                     @if (!request()->routeIs('home'))
@@ -167,6 +175,8 @@
                                                 <li><a href="{{ route('home') }}#tentangkami">Tentang Kami</a></li>
                                                 <li><a href="{{ route('home') }}#contact">Kontak</a></li>
                                                 <li><a href="{{ route('post.list') }}">Blog</a></li>
+                                                <li><a href="{{ route('promosi.index') }}">Promosi</a></li>
+                                                <li><a href="{{ route('galery.index') }}">Galery</a></li>
                                         </div>
                                     @endif
                                 </div>
@@ -183,7 +193,7 @@
                                 </div>
                                 <div class="col-sm-4 mt-4">
                                     <h5 class="text-white mb-0">Support</h5>
-                                    @if (!request()->routeIs('post.list', 'posts.show', 'posts.search'))
+                                    @if (!request()->routeIs('post.list', 'posts.show', 'posts.search', 'galery.index', 'promosi.index'))
                                         <div class="text-muted mt-3">
                                             <ul class="list-unstyled ff-secondary footer-list fs-14">
                                                 <li><a href="#contact">Kontak</a></li>
@@ -282,6 +292,13 @@
         <script src="{{ asset('assets/js/pages/landing.init.js') }}"></script>
         <!-- aos js -->
         <script src="{{ asset('assets/libs/aos/aos.js') }}"></script>
+        <!-- glightbox js -->
+        <script src="{{ asset('assets/libs/glightbox/js/glightbox.min.js') }}"></script>
+
+        <!-- isotope-layout -->
+        <script src="{{ asset('assets/libs/isotope-layout/isotope.pkgd.min.js') }}"></script>
+
+        <script src="{{ asset('assets/js/pages/gallery.init.js') }}"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 AOS.init({

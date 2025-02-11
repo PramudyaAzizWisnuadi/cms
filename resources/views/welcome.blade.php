@@ -91,9 +91,10 @@
     <!-- end client section -->
 
     <!-- start services -->
-    <section class="section bg-light" id="tentangkami">
+    <section class="section" id="tentangkami">
+        <div class="bg-overlay-1 bg-overlay-pattern"></div>
         <div data-aos="fade-down" data-aos-duration="1000" class="container">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center content">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Sejarah</h3>
@@ -117,48 +118,48 @@
                 </div>
             </div>
             <!-- end row -->
-            <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="text-center my-5">
-                        <h3 class="mb-3 fw-bold">Visi & Misi</h3>
-                        <h4 class="text-muted">Visi</h4>
-                        <div class="row text-center"></div>
-                        <div class="col d-flex justify-content-center align-items-center">
-                            <div class="mt-4">
+            <div class="">
+                <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center content">
+                    <div class="col-lg-8">
+                        <div class="text-center my-5">
+                            <h3 class="mb-3 fw-bold">Visi & Misi</h3>
+                            <h4 class="text-muted">Visi</h4>
+                            <div class="row text-center"></div>
+                            <div class="col d-flex justify-content-center align-items-center">
+                                <div class="mt-4">
+                                    <div class="avatar-sm icon-effect mx-auto mb-4">
+                                        <div class="avatar-title bg-transparent text-success rounded-circle h1">
+                                            <i class="ri-focus-2-line"></i>
+                                        </div>
+                                    </div>
+                                    @foreach ($visi as $item)
+                                        <h5>{{ $item->content }}</h5>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="hr hr-blurry" />
+                    </div>
+                </div>
+                <!-- end row -->
+                <div data-aos="fade-up-right" data-aos-duration="1000"
+                    class="row text-center d-flex justify-content-center align-items-center content">
+                    <h4 class="text-muted mb-4">Misi</h4>
+                    @foreach ($misi as $item)
+                        <div class="col-lg-4">
+                            <div class="process-card mt-4">
                                 <div class="avatar-sm icon-effect mx-auto mb-4">
                                     <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                        <i class="ri-focus-2-line"></i>
+                                        <i class="ri-checkbox-line"></i>
                                     </div>
                                 </div>
-                                @foreach ($visi as $item)
-                                    <h5>{{ $item->content }}</h5>
-                                @endforeach
+                                <p class="text-muted">{{ $item->content }}</p>
                             </div>
                         </div>
-                    </div>
-                    <hr class="hr hr-blurry" />
+                    @endforeach
                 </div>
             </div>
-            <!-- end row -->
-            <div data-aos="fade-up-right" data-aos-duration="1000"
-                class="row text-center d-flex justify-content-center align-items-center">
-                <h4 class="text-muted mb-4">Misi</h4>
-                @foreach ($misi as $item)
-                    <div class="col-lg-4">
-                        <div class="process-card mt-4">
-                            <div class="avatar-sm icon-effect mx-auto mb-4">
-                                <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                    <i class="ri-checkbox-line"></i>
-                                </div>
-                            </div>
-                            <p class="text-muted">{{ $item->content }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </section>
     <!-- end Work Process -->
     <!-- Blog Section -->
