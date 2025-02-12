@@ -61,7 +61,9 @@
                                                         <div class="box-content">
                                                             <div class="d-flex align-items-center mt-1">
                                                                 <div class="flex-grow-1 text-muted">by <a href="#"
-                                                                        class="text-body text-truncate">MD Group</a>
+                                                                        class="text-body text-truncate"><span
+                                                                            class="text-danger">MD</span><span
+                                                                            class="text-success">Group </span></a>
                                                                 </div>
                                                             </div>
                                                         </div>

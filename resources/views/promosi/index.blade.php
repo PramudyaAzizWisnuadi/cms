@@ -12,8 +12,8 @@
                             <h4 class="mb-sm-0">List Promosi</h4>
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Promosi</a></li>
-                                    <li class="breadcrumb-item active">List Promosi</li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Pages</a></li>
+                                    <li class="breadcrumb-item active">Promosi</li>
                                 </ol>
                             </div>
                         </div>
@@ -22,12 +22,13 @@
                 <!-- end page title -->
 
                 <div class="row">
-                    <div class="col-xxl-3">
+                    <div class="col-lg-5">
                         <div class="card">
                             <div class="card-body p-4">
+                                <p class="text-muted text-xxl-end text-sm-start">PROMO</p>
                                 <div class="mt-4 pt-4 border-top border-dashed border-bottom-0 border-start-0 border-end-0">
-                                    <p class="text-muted">PROMO</p>
-                                    <ul class="list-unstyled fw-medium">
+
+                                    <ul class="list-unstyled fw-medium text-xxl-end text-sm-start">
                                         @foreach ($kategori as $k)
                                             <li><a href="{{ route('promosi.index', ['category_id' => $k->id]) }}"
                                                     class="text-muted py-2 d-block"><i
@@ -39,8 +40,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xxl-9">
-                        <div class="row gx-4">
+                    <div class="col-xxl-7">
+                        <div class="row gx-4 ">
                             @foreach ($promosi as $item)
                                 <div class="col-xxl-12">
                                     <div class="card">
@@ -59,7 +60,7 @@
                                                         @if ($item->image)
                                                             <img src="{{ asset('storage/' . $item->image) }}"
                                                                 alt="{{ $item->name }}"
-                                                                class="img-fluid rounded w-100 object-fit-cover ">
+                                                                class="img-fluid rounded w-100 img-thumbnail">
                                                         @endif
                                                     </a </div><!--end col-->
 

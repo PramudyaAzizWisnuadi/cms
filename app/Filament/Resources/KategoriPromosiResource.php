@@ -19,7 +19,7 @@ class KategoriPromosiResource extends Resource
     protected static ?string $model = CategoryPromosi::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-
+    protected static ?string $navigationGroup = 'Promosi';
     public static function form(Form $form): Form
     {
         return $form

@@ -111,7 +111,7 @@
                             </div>
                             <div class="content">
                                 <h5 class="fs-14">{{ $timeline->title }}</h5>
-                                <p class="text-muted">{{ $timeline->description }}</p>
+                                <p class="text-muted fs-11">{{ $timeline->description }}</p>
                             </div>
                         </div>
                     @endforeach
