@@ -33,8 +33,6 @@
                             <div class="carousel-inner p-2 rounded">
                                 <div class="carousel-item active" data-bs-interval="2000">
                                     <img src="{{ asset('storage/' . $landingpage->fotodepan) }}" class="d-block w-100">
-                                    {{-- <img src="{{ asset('assets/images/testetst.png') }}" class="d-block w-100"
-                                        alt="..."> --}}
                                 </div>
                             </div>
                         </div>
@@ -109,54 +107,61 @@
                             <div class="date fs-13 text-muted">Tahun
                                 {{ \Carbon\Carbon::parse($timeline->date)->format('Y') }}
                             </div>
-                            <div class="content">
+                            <div class="content text-justify">
                                 <h5 class="fs-14">{{ $timeline->title }}</h5>
-                                <p class="text-muted fs-11">{{ $timeline->description }}</p>
+                                <p class="text-muted text-justify fs-11">{{ $timeline->description }}</p>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
             <!-- end row -->
-            <div class="">
-                <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center content">
-                    <div class="col-lg-8">
-                        <div class="text-center my-5">
-                            <h3 class="mb-3 fw-bold">Visi & Misi</h3>
-                            <h4 class="text-muted">Visi</h4>
-                            <div class="row text-center"></div>
-                            <div class="col d-flex justify-content-center align-items-center">
-                                <div class="mt-4">
+
+        </div>
+    </section>
+    <section class="section bg-light">
+        <div data-aos="fade-down" data-aos-duration="1000" class="container">
+            <div class="row justify-content-center content">
+                <div class="">
+                    <div data-aos="fade-up-left" data-aos-duration="1000" class="row justify-content-center content">
+                        <div class="col-lg-8">
+                            <div class="text-center my-5">
+                                <h3 class="mb-3 fw-bold">Visi & Misi</h3>
+                                <h4 class="text-muted">Visi</h4>
+                                <div class="row text-center"></div>
+                                <div class="col d-flex justify-content-center align-items-center">
+                                    <div class="mt-4">
+                                        <div class="avatar-sm icon-effect mx-auto mb-4">
+                                            <div class="avatar-title bg-transparent text-success rounded-circle h1">
+                                                <i class="ri-focus-2-line"></i>
+                                            </div>
+                                        </div>
+                                        @foreach ($visi as $item)
+                                            <h5>{{ $item->content }}</h5>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="hr hr-blurry" />
+                        </div>
+                    </div>
+                    <!-- end row -->
+                    <div data-aos="fade-up-right" data-aos-duration="1000"
+                        class="row text-center d-flex justify-content-center align-items-center content">
+                        <h4 class="text-muted mb-4">Misi</h4>
+                        @foreach ($misi as $item)
+                            <div class="col-lg-4">
+                                <div class="process-card mt-4">
                                     <div class="avatar-sm icon-effect mx-auto mb-4">
                                         <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                            <i class="ri-focus-2-line"></i>
+                                            <i class="ri-checkbox-line"></i>
                                         </div>
                                     </div>
-                                    @foreach ($visi as $item)
-                                        <h5>{{ $item->content }}</h5>
-                                    @endforeach
+                                    <p class="text-muted">{{ $item->content }}</p>
                                 </div>
                             </div>
-                        </div>
-                        <hr class="hr hr-blurry" />
+                        @endforeach
                     </div>
-                </div>
-                <!-- end row -->
-                <div data-aos="fade-up-right" data-aos-duration="1000"
-                    class="row text-center d-flex justify-content-center align-items-center content">
-                    <h4 class="text-muted mb-4">Misi</h4>
-                    @foreach ($misi as $item)
-                        <div class="col-lg-4">
-                            <div class="process-card mt-4">
-                                <div class="avatar-sm icon-effect mx-auto mb-4">
-                                    <div class="avatar-title bg-transparent text-success rounded-circle h1">
-                                        <i class="ri-checkbox-line"></i>
-                                    </div>
-                                </div>
-                                <p class="text-muted">{{ $item->content }}</p>
-                            </div>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </div>
@@ -189,7 +194,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ Str::limit($item->title, 20) }}</h5>
                                 <div class="text-muted mb-2">
-                                    {!! Str::limit($item->body, 75) !!}
+                                    {!! Str::limit($item->body, 90) !!}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya...

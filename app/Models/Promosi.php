@@ -10,7 +10,7 @@ class Promosi extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'image', 'start_date', 'end_date', 'category_id'];
+    protected $fillable = ['name', 'image', 'image2', 'image3', 'image4', 'image5', 'start_date', 'end_date', 'category_id'];
 
     protected $dates = ['start_date', 'end_date'];
 

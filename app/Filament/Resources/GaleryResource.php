@@ -37,7 +37,7 @@ class GaleryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('title')
+                Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->label('Title'),
                 Tables\Columns\ImageColumn::make('image')

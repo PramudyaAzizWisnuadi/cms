@@ -125,7 +125,7 @@
 .bg-overlay-1{background-image:url(../images/cover-pattern.png);background-position:center;background-size:cover;opacity:1;background-color:transparent}
 .bg-overlay-1{position:absolute;right:0;left:0;top:0;bottom:0;background-color:rgba(54,61,72,.4);opacity:0;-webkit-transition:all .5s ease;transition:all .5s ease}
 .bg-overlay-1{opacity:1}
-.bg-overlay-1{background-image: url(../images/fotodepan.jpg);opacity:0.1}
+.bg-overlay-1{background-image: url(../images/timeline.jpg);opacity:0.2}
 .promosi-image {
     width: 100%; /* Atur lebar gambar sesuai kebutuhan */
     height: auto; /* Atur tinggi gambar secara otomatis */

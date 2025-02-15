@@ -18,7 +18,7 @@ class PromosiResource extends Resource
 {
     protected static ?string $model = Promosi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationGroup = 'Promosi';
     public static function form(Form $form): Form
     {
@@ -28,8 +28,15 @@ class PromosiResource extends Resource
                     ->label('Nama Promosi')
                     ->required(),
                 Forms\Components\FileUpload::make('image')
-                    ->label('Gambar')
-                    ->required(),
+                    ->label('Gambar'),
+                Forms\Components\FileUpload::make('image2')
+                    ->label('Gambar 2'),
+                Forms\Components\FileUpload::make('image3')
+                    ->label('Gambar 3'),
+                Forms\Components\FileUpload::make('image4')
+                    ->label('Gambar 4'),
+                Forms\Components\FileUpload::make('image5')
+                    ->label('Gambar 5'),
                 Forms\Components\DateTimePicker::make('start_date')
                     ->label('Tanggal Mulai')
                     ->required(),
@@ -39,7 +46,14 @@ class PromosiResource extends Resource
                 Forms\Components\Select::make('category_id')
                     ->label('Kategori')
                     ->relationship('category', 'name')
-                    ->required(),
+                    ->required()
+                    ->rule(function ($get) {
+                        return function ($attribute, $value, $fail) use ($get) {
+                            if (Promosi::where('category_id', $value)->where('id', '!=', $get('id'))->exists()) {
+                                $fail('Hanya satu promosi yang dapat dibuat per kategori.');
+                            }
+                        };
+                    }),
             ]);
     }
 
@@ -51,7 +65,15 @@ class PromosiResource extends Resource
                     ->searchable()
                     ->label('Nama Promosi'),
                 Tables\Columns\ImageColumn::make('image')
-                    ->label('Gambar'),
+                    ->label('Gambar 1'),
+                Tables\Columns\ImageColumn::make('image2')
+                    ->label('Gambar 2'),
+                Tables\Columns\ImageColumn::make('image3')
+                    ->label('Gambar 3'),
+                Tables\Columns\ImageColumn::make('image4')
+                    ->label('Gambar 4'),
+                Tables\Columns\ImageColumn::make('image5')
+                    ->label('Gambar 5'),
                 Tables\Columns\TextColumn::make('category.name')
                     ->searchable()
                     ->label('Kategori'),

@@ -63,7 +63,7 @@
                                                     @if ($item->thumbnail)
                                                         <img src="{{ asset('storage/' . $item->thumbnail) }}"
                                                             alt="{{ $item->title }}"
-                                                            class="img-fluid rounded w-100 object-fit-cover ">
+                                                            class="img-fluid rounded w-100 object-fit-cover">
                                                     @endif
                                                 </div><!--end col-->
                                                 <div class="col-xxl-9 col-lg-7">

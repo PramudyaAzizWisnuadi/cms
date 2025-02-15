@@ -70,7 +70,7 @@ class PostResource extends Resource
                     ->directory('thumbnails')
                     ->visibility('public')
                     ->nullable()
-                    ->maxSize(1024) // Set max size to 1MB
+                    ->maxSize(2048) // Set max size to 1MB
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']), // Set accepted file types
             ]);
     }
