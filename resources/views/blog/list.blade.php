@@ -41,6 +41,8 @@
                                     <p class="text-muted">Kategori</p>
 
                                     <ul class="list-unstyled fw-medium">
+                                        <li><a href="{{ route('post.list') }}" class="text-muted py-2 d-block"><i
+                                                    class="mdi mdi-chevron-right me-1"></i> All</a></li>
                                         @foreach ($categories as $kategori)
                                             <li><a href="{{ route('post.list', ['category' => $kategori->id]) }}"
                                                     class="text-muted py-2 d-block"><i

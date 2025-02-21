@@ -52,7 +52,7 @@
                                                                 title="{{ $item->title }}">
                                                                 <img class="gallery-img img-fluid mx-auto"
                                                                     src="{{ asset('storage/' . $item->image) }}"
-                                                                    alt="" />
+                                                                    alt="{{ $item->name }}" loading="lazy" />
                                                                 <div class="gallery-overlay">
                                                                     <h5 class="overlay-caption">{{ $item->name }}</h5>
                                                                 </div>

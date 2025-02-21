@@ -1,4 +1,3 @@
-<!-- filepath: /d:/laragon/www/cms/resources/views/promosi/index.blade.php -->
 @extends('app.layout')
 @section('title', 'Promosi')
 @section('konten')

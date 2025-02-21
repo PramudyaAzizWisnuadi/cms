@@ -96,7 +96,7 @@
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
                         <h3 class="mb-3 fw-bold">Sejarah</h3>
-                        <div class="mb-3 ff-secondary fw-bold lh-base text-muted">{!! convertRelativePathsToAbsolute($landingpage->tentangkami) !!}</div>
+                        <div class="mb-3 ff-secondary fw-bold lh-base">{!! convertRelativePathsToAbsolute($landingpage->tentangkami) !!}</div>
                     </div>
                 </div>
                 <!-- end col -->
@@ -104,12 +104,12 @@
                     @foreach ($timelines as $timeline)
                         <div class="timeline-item {{ $timeline->position }}">
                             <i class="icon {{ $timeline->icon }}"></i>
-                            <div class="date fs-13 text-muted">Tahun
+                            <div class="date fs-13">Tahun
                                 {{ \Carbon\Carbon::parse($timeline->date)->format('Y') }}
                             </div>
                             <div class="content text-justify">
                                 <h5 class="fs-14">{{ $timeline->title }}</h5>
-                                <p class="text-muted text-justify fs-11">{{ $timeline->description }}</p>
+                                <p class="text-justify fs-11">{{ $timeline->description }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -194,7 +194,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ Str::limit($item->title, 20) }}</h5>
                                 <div class="text-muted mb-2">
-                                    {!! Str::limit($item->body, 90) !!}
+                                    {!! Str::limit($item->body, 100) !!}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya...

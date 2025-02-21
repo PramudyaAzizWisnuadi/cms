@@ -131,3 +131,6 @@
     height: auto; /* Atur tinggi gambar secara otomatis */
     object-fit: cover; /* Menjaga proporsi gambar */
 }
+.text-justify {
+    text-align: justify;
+}
