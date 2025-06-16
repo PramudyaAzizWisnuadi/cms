@@ -43,8 +43,7 @@ class PostResource extends Resource
                 Forms\Components\TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                TinyEditor::make('body')
-                    ->required(),
+
                 // Forms\Components\RichEditor::make('body')
                 //     ->required(),
                 Hidden::make('author_id')
@@ -72,6 +71,9 @@ class PostResource extends Resource
                     ->nullable()
                     ->maxSize(512) // Set max size to 500kb
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']), // Set accepted file types
+                TinyEditor::make('body')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 

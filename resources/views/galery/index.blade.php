@@ -72,12 +72,10 @@
                                             @endforeach
                                         </div>
                                         <!-- end row -->
-
-                                        {{-- <div class="text-center my-2">
-                                            <a href="javascript:void(0);" class="text-success"><i
-                                                    class="mdi mdi-loading mdi-spin fs-20 align-middle me-2"></i> Load More
-                                            </a>
-                                        </div> --}}
+                                        <!-- Tambahkan navigasi paginasi -->
+                                        <div class="d-flex justify-content-center mt-4">
+                                            {{ $galery->links() }}
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- end row -->

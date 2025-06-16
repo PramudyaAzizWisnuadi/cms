@@ -29,7 +29,7 @@ class GaleryController extends Controller
         if ($category_id) {
             $galery = Galery::where('category_id', $category_id)->get();
         } else {
-            $galery = Galery::all();
+            $galery = Galery::paginate(12);
         }
 
         return view('galery.index', compact('galery', 'galerycategory', 'category_id', 'sosial'));

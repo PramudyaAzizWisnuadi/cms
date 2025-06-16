@@ -134,3 +134,19 @@
 .text-justify {
     text-align: justify;
 }
+.blog-grid-card {
+    height: 100%; /* Membuat card menyesuaikan tinggi kontainer */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.blog-grid-card .blog-img {
+    height: 200px; /* Atur tinggi gambar */
+    object-fit: cover; /* Pastikan gambar tidak terdistorsi */
+    width: 100%;
+}
+
+.blog-grid-card .card-body {
+    flex-grow: 1; /* Membuat konten card mengisi ruang yang tersedia */
+}

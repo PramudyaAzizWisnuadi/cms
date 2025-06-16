@@ -145,3 +145,10 @@
     </div>
     <!-- end main content-->
 @endsection
+
+<style>
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.5));
+    }
+</style>

@@ -188,13 +188,13 @@
                             <div class="position-relative overflow-hidden">
                                 @if ($item->thumbnail)
                                     <img src="{{ asset('storage/' . $item->thumbnail) }}" alt="{{ $item->title }}"
-                                        class="blog-img object-fit-cover">
+                                        class="blog-img">
                                 @endif
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ Str::limit($item->title, 20) }}</h5>
                                 <div class="text-muted mb-2">
-                                    {!! Str::limit($item->body, 100) !!}
+                                    {{ Str::limit(strip_tags($item->body), 100) }}
                                 </div>
                                 <a href="{{ route('posts.show', $item->slug) }}"
                                     class="link link-primary text-decoration-underline link-offset-1">Baca Selengkapnya...
@@ -203,6 +203,11 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+            <div class="text-center mt-4">
+                <a href="{{ route('post.list') }}" class="btn btn-success btn-rounded">
+                    See More Blog <i class="ri-arrow-right-line align-middle ms-1"></i>
+                </a>
             </div>
             <!-- end row -->
         </div>

@@ -72,7 +72,6 @@
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0" id="navbar-example">
                             @if (!request()->routeIs('home'))
                                 <li class="nav-item">
-
                                     <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('home') ? 'active' : '' }}"
                                         href=" {{ route('home') }}">Home</a>
                                 </li>
@@ -96,6 +95,26 @@
                                     <a class="nav-link fs-15 fw-semibold" href="#contact">Kontak</a>
                                 </li>
                             @endif
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle fs-15 fw-semibold" href="#"
+                                    id="navbarEventDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Event
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarEventDropdown"
+                                    data-bs-auto-close="outside">
+                                    @forelse($events as $event)
+                                        <li>
+                                            <a target="_blank" class="dropdown-item"
+                                                href="{{ $event->link }}">{{ $event->title }}</a>
+                                        </li>
+                                    @empty
+                                        <li>
+                                            <a class="dropdown-item" href="#">Belum ada event mendatang</a>
+                                        </li>
+                                    @endforelse
+                                </ul>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link fs-15 fw-semibold {{ request()->routeIs('post.list', 'posts.show', 'posts.search') || request()->is('blog*') ? 'active' : '' }}"
                                     href="{{ route('post.list') }}">Blog</a>
@@ -220,7 +239,7 @@
                                 <p class="copy-rights mb-0">
                                     <script>
                                         document.write(new Date().getFullYear())
-                                    </script> © MD - Group | NPWP :
+                                    </script> © MD - Group | NPWP
                                     {{ $sosial->telegram }}
                                 </p>
                             </div>
@@ -253,7 +272,8 @@
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a target="_blank" href="https://www.instagram.com/{{ $sosial->instagram }}/"
+                                        <a target="_blank"
+                                            href="https://www.instagram.com/{{ $sosial->instagram }}/?hl=id"
                                             class="avatar-xs d-block">
                                             <div class="avatar-title rounded-circle">
                                                 <i class="ri-instagram-fill"></i>
@@ -269,7 +289,7 @@
             <!-- end footer -->
 
             <!--start back-to-top-->
-            <button onclick="topFunction()" class="btn btn-danger btn-icon landing-back-top" id="back-to-top">
+            <button onclick="topFunction()" class="btn btn-success btn-icon landing-back-top" id="back-to-top">
                 <i class="ri-arrow-up-line"></i>
             </button>
             <!--end back-to-top-->
@@ -343,6 +363,39 @@
         </script>
         <script>
             AOS.init();
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                function autoOpenEventDropdown() {
+                    // Cek jika lebar layar <= 991px (Bootstrap breakpoint untuk navbar mobile)
+                    if (window.innerWidth <= 991) {
+                        var dropdown = document.getElementById('navbarEventDropdown');
+                        var dropdownMenu = dropdown && dropdown.nextElementSibling;
+                        if (dropdownMenu && !dropdownMenu.classList.contains('show')) {
+                            dropdownMenu.classList.add('show');
+                            dropdown.setAttribute('aria-expanded', 'true');
+                        }
+                    } else {
+                        // Hilangkan show jika bukan mobile
+                        var dropdown = document.getElementById('navbarEventDropdown');
+                        var dropdownMenu = dropdown && dropdown.nextElementSibling;
+                        if (dropdownMenu && dropdownMenu.classList.contains('show')) {
+                            dropdownMenu.classList.remove('show');
+                            dropdown.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                }
+
+                // Jalankan saat navbar dibuka (collapse show)
+                var navbar = document.getElementById('navbarSupportedContent');
+                if (navbar) {
+                    navbar.addEventListener('show.bs.collapse', autoOpenEventDropdown);
+                    navbar.addEventListener('hide.bs.collapse', autoOpenEventDropdown);
+                }
+
+                // Jalankan juga saat resize
+                window.addEventListener('resize', autoOpenEventDropdown);
+            });
         </script>
     </body>
 
