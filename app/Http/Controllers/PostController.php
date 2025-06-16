@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Post;
+use App\Models\Event;
 use App\Models\Sosial;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -20,14 +22,16 @@ class PostController extends Controller
         $posts = $query->paginate(4); // Gunakan query builder yang sudah diinisialisasi
         $categories = Category::all(); // Ambil semua kategori
         $sosial = Sosial::first();
-        return view('blog.list', compact('posts', 'categories', 'sosial'));
+        $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
+        return view('blog.list', compact('posts', 'categories', 'sosial', 'events'));
     }
 
     public function show($slug)
     {
         $posts = Post::where('slug', $slug)->where('status', 'published')->firstOrFail(); // Tambahkan kondisi status published
         $sosial = Sosial::first();
-        return view('blog.detail', compact('posts', 'sosial'));
+        $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
+        return view('blog.detail', compact('posts', 'sosial', 'events'));
     }
 
     public function search(Request $request)
@@ -42,6 +46,7 @@ class PostController extends Controller
             ->paginate(5);
         $categories = Category::all(); // Ambil semua kategori
         $sosial = Sosial::first();
-        return view('blog.list', compact('posts', 'categories', 'sosial'));
+        $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
+        return view('blog.list', compact('posts', 'categories', 'sosial', 'events'));
     }
 }

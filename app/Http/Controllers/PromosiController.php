@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Event;
 use App\Models\Sosial;
 use App\Models\Promosi;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class PromosiController extends Controller
             $promosi = Promosi::where('end_date', '>=', $currentDate)->get();
         }
         $sosial = Sosial::first();
-        return view('promosi.index', compact('promosi', 'kategori', 'category_id', 'sosial'));
+        $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
+        return view('promosi.index', compact('promosi', 'kategori', 'category_id', 'sosial', 'events'));
     }
 }
