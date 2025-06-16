@@ -110,7 +110,8 @@
                                         </li>
                                     @empty
                                         <li>
-                                            <a class="dropdown-item" href="#">Belum ada event mendatang</a>
+                                            <a class="dropdown-item disabled" href="#">Belum ada event
+                                                mendatang</a>
                                         </li>
                                     @endforelse
                                 </ul>
