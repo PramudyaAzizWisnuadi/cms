@@ -73,7 +73,7 @@
                                         </div>
                                         <!-- end row -->
                                         <!-- Tambahkan navigasi paginasi -->
-                                        <div class="d-flex justify-content-center mt-4">
+                                        <div class="d-flex justify-content-end mt-4">
                                             {{ $galery->appends(request()->query())->links() }}
                                         </div>
                                     </div>
