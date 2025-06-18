@@ -30,7 +30,7 @@ class GaleryController extends Controller
         $sosial = Sosial::first();
         $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
         if ($category_id) {
-            $galery = Galery::where('category_id', $category_id)->get();
+            $galery = Galery::where('category_id', $category_id)->paginate(12);
         } else {
             $galery = Galery::paginate(12);
         }
