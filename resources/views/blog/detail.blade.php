@@ -1,5 +1,20 @@
 @extends('app.layout')
 @section('title', $posts->title)
+@section('description', Str::limit(strip_tags($posts->body), 160))
+@section('keywords', collect($posts->tags)->pluck('name')->implode(', ') . ', ' . $posts->category->name . ', MD Group')
+@section('image', $posts->thumbnail ? asset('storage/' . $posts->thumbnail) : asset('assets/images/logo-md-group.jpg'))
+@section('og_type', 'article')
+
+@push('meta')
+    {{-- Article specific meta tags --}}
+    <meta property="article:published_time" content="{{ $posts->created_at->toISOString() }}">
+    <meta property="article:modified_time" content="{{ $posts->updated_at->toISOString() }}">
+    <meta property="article:author" content="{{ $posts->author->name }}">
+    <meta property="article:section" content="{{ $posts->category->name }}">
+    @foreach($posts->tags as $tag)
+        <meta property="article:tag" content="{{ $tag->name }}">
+    @endforeach
+@endpush
 @section('konten')
     <div class="main-content">
 
@@ -78,4 +93,74 @@
         <!-- End Page-content -->
     </div>
     <!-- end main content-->
+    
+    {{-- Enhanced Structured Data --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ $posts->title }}",
+        "description": "{{ Str::limit(strip_tags($posts->body), 160) }}",
+        "image": {
+            "@type": "ImageObject",
+            "url": "{{ $posts->thumbnail ? asset('storage/' . $posts->thumbnail) : asset('assets/images/logo-md-group.jpg') }}",
+            "width": 800,
+            "height": 600
+        },
+        "author": {
+            "@type": "Person",
+            "name": "{{ $posts->author->name }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "MD Group",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ asset('assets/images/logo-md-group.jpg') }}",
+                "width": 200,
+                "height": 200
+            }
+        },
+        "datePublished": "{{ $posts->created_at->toISOString() }}",
+        "dateModified": "{{ $posts->updated_at->toISOString() }}",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ url()->current() }}"
+        },
+        "articleSection": "{{ $posts->category->name }}",
+        "keywords": [
+            @foreach($posts->tags as $index => $tag)
+                "{{ $tag->name }}"{{ $loop->last ? '' : ',' }}
+            @endforeach
+        ]
+    }
+    </script>
+
+    {{-- Breadcrumb Schema --}}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "{{ url('/') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "{{ route('post.list') }}"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "{{ $posts->title }}",
+                "item": "{{ url()->current() }}"
+            }
+        ]
+    }
+    </script>
 @endsection

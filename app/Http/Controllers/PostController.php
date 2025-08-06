@@ -16,7 +16,7 @@ class PostController extends Controller
         $query = Post::where('status', 'published')->latest(); // Tambahkan kondisi status published
 
         if ($request->has('category')) {
-            $query->where('category_id', $request->input('category'));
+            $query->where('categorcpy_id', $request->input('category'));
         }
 
         $posts = $query->paginate(4); // Gunakan query builder yang sudah diinisialisasi

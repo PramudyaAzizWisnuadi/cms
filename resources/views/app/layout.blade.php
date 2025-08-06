@@ -7,8 +7,34 @@
         <meta charset="utf-8" />
         <title>MD Group | @yield('title')</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="MD Group" name="description" />
-        <meta content="Themesbrand" name="author" />
+        <meta name="description" content="@yield('description', 'MD Group - Organisasi Terpercaya')">
+        <meta name="keywords" content="@yield('keywords', 'MD Group, organisasi, berita, galeri, promosi')">
+        <meta name="author" content="MD Group">
+
+        {{-- SEO Meta Tags --}}
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="{{ url()->current() }}">
+
+        {{-- Open Graph for Social Media --}}
+        <meta property="og:title" content="@yield('title', 'MD Group')">
+        <meta property="og:description" content="@yield('description', 'MD Group - Together We Thrive')">
+        <meta property="og:image" content="@yield('image', asset('assets/images/logo-md-group.jpg'))">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="@yield('og_type', 'website')">
+        <meta property="og:site_name" content="MD Group">
+
+        {{-- Twitter Card --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="@yield('title', 'MD Group')">
+        <meta name="twitter:description" content="@yield('description', 'MD Group - Together We Thrive')">
+        <meta name="twitter:image" content="@yield('image', asset('assets/images/logo-md-group.jpg'))">
+
+        {{-- Additional Meta Tags --}}
+        @stack('meta')
+        
+        {{-- Sitemap --}}
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ route('sitemap') }}">
+        
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/logomd.ico') }}">
 
