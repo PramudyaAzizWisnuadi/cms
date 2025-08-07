@@ -32,7 +32,7 @@ class GaleryController extends Controller
         if ($category_id) {
             $galery = Galery::where('category_id', $category_id)->paginate(12);
         } else {
-            $galery = Galery::paginate(12);
+            $galery = Galery::paginate(4);
         }
 
         return view('galery.index', compact('galery', 'galerycategory', 'category_id', 'sosial', 'events'));
