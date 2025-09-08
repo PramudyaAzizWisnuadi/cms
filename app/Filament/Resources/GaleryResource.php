@@ -25,7 +25,7 @@ class GaleryResource extends Resource
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->label('Image')
-                    ->maxSize(1024)
+                    ->maxSize(2048)
                     ->required(),
                 Forms\Components\Select::make('category_id')
                     ->label('Category')

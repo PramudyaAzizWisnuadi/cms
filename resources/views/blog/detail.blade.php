@@ -11,7 +11,7 @@
     <meta property="article:modified_time" content="{{ $posts->updated_at->toISOString() }}">
     <meta property="article:author" content="{{ $posts->author->name }}">
     <meta property="article:section" content="{{ $posts->category->name }}">
-    @foreach($posts->tags as $tag)
+    @foreach ($posts->tags as $tag)
         <meta property="article:tag" content="{{ $tag->name }}">
     @endforeach
 @endpush
@@ -93,7 +93,7 @@
         <!-- End Page-content -->
     </div>
     <!-- end main content-->
-    
+
     {{-- Enhanced Structured Data --}}
     <script type="application/ld+json">
     {

@@ -31,10 +31,10 @@
 
         {{-- Additional Meta Tags --}}
         @stack('meta')
-        
+
         {{-- Sitemap --}}
         <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ route('sitemap') }}">
-        
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/logomd.ico') }}">
 
