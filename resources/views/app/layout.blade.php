@@ -155,6 +155,9 @@
                                     href="{{ route('galery.index') }}">Galery</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link fs-15 fw-semibold" href="https://shop.mdgroup.id">Shop Now</a>
+                            </li>
+                            <li class="nav-item">
                                 <div class="d-flex nav-link fs-15 fw-semibold">
                                     <i class="ri-sun-line me-1"></i>
                                     <div class="form-check form-switch">
