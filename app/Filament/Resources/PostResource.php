@@ -69,7 +69,6 @@ class PostResource extends Resource
                     ->directory('thumbnails')
                     ->visibility('public')
                     ->nullable()
-                    ->maxSize(512) // Set max size to 500kb
                     ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/gif']), // Set accepted file types
                 TinyEditor::make('body')
                     ->required()
