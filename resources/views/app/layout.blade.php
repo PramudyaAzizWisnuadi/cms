@@ -38,23 +38,122 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/logomd.ico') }}">
 
-        <!-- glightbox css -->
-        <link rel="stylesheet" href="{{ asset('assets/libs/glightbox/css/glightbox.min.css') }}">
-        <!--Swiper slider css-->
-        <link href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Preload critical resources -->
+        <link rel="preload" href="{{ asset('assets/css/bootstrap.min.css') }}" as="style">
+        <link rel="preload" href="{{ asset('assets/css/icons.min.css') }}" as="style">
 
-        <!-- Layout config Js -->
-        <script src="{{ asset('assets/js/layout.js') }}"></script>
-        <!-- Bootstrap Css -->
+        <!-- Critical CSS - Load immediately -->
         <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- Icons Css -->
         <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- App Css-->
         <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- custom Css-->
-        <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
-        <!-- aos css -->
-        <link rel="stylesheet" href="{{ asset('assets/libs/aos/aos.css') }}" type="text/css" />
+
+        <!-- Non-critical CSS - Load with defer -->
+        <link rel="preload" href="{{ asset('assets/libs/glightbox/css/glightbox.min.css') }}" as="style"
+            onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+            <link rel="stylesheet" href="{{ asset('assets/libs/glightbox/css/glightbox.min.css') }}">
+        </noscript>
+
+        <link rel="preload" href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}" as="style"
+            onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+            <link rel="stylesheet" href="{{ asset('assets/libs/swiper/swiper-bundle.min.css') }}">
+        </noscript>
+
+        <!-- Layout config Js - Inline critical JS -->
+        <script>
+            // Critical inline JS for layout
+            if (sessionStorage.getItem("defaultAttribute")) {
+                var attributeValue = JSON.parse(sessionStorage.getItem("defaultAttribute"));
+                var layout = attributeValue["data-layout"];
+                document.getElementsByTagName("html")[0].setAttribute("data-layout", layout);
+            }
+        </script>
+
+        <!-- Non-critical CSS - Load with defer -->
+        <link rel="preload" href="{{ asset('assets/css/custom.min.css') }}" as="style"
+            onload="this.onload=null;this.rel='stylesheet'">
+        <noscript>
+            <link rel="stylesheet" href="{{ asset('assets/css/custom.min.css') }}">
+        </noscript>
+
+        <!-- Load AOS CSS only on desktop devices -->
+        <script>
+            const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent);
+            if (!isMobile) {
+                const aosLink = document.createElement('link');
+                aosLink.rel = 'preload';
+                aosLink.href = "{{ asset('assets/libs/aos/aos.css') }}";
+                aosLink.as = 'style';
+                aosLink.onload = function() {
+                    this.rel = 'stylesheet';
+                };
+                document.head.appendChild(aosLink);
+            }
+        </script>
+
+        <!-- Preconnect to external domains -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- Critical CSS Inline -->
+        {!! criticalCSS() !!}
+
+        <!-- Mobile Optimization CSS -->
+        <style>
+            /* Mobile Performance Optimization - Disable animations on mobile */
+            @media (max-width: 768px) {
+
+                /* Completely disable all animations on mobile */
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0s !important;
+                    animation-delay: 0s !important;
+                    transition-duration: 0s !important;
+                    transition-delay: 0s !important;
+                    transform: none !important;
+                }
+
+                /* Force opacity to 1 for all AOS elements */
+                [data-aos] {
+                    opacity: 1 !important;
+                    transform: none !important;
+                }
+
+                /* Disable Bootstrap animations */
+                .fade {
+                    opacity: 1 !important;
+                }
+
+                .collapsing {
+                    transition: none !important;
+                }
+
+                /* Disable carousel slide animation */
+                .carousel-item {
+                    transform: none !important;
+                }
+
+                .carousel.slide .carousel-item {
+                    transform: none !important;
+                }
+            }
+
+            /* Reduce motion for accessibility */
+            @media (prefers-reduced-motion: reduce) {
+
+                *,
+                *::before,
+                *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
+            }
+        </style>
 
         <script>
             document.addEventListener('DOMContentLoaded', function() {
@@ -328,47 +427,82 @@
         <!-- end layout wrapper -->
 
 
-        <!-- JAVASCRIPT -->
+        <!-- JAVASCRIPT - Critical first -->
         <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-        <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
-        <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-        <script src="{{ asset('assets/js/plugins.js') }}"></script>
-        <!--Swiper slider js-->
-        <script src="{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}"></script>
 
-        <!-- landing init -->
-        <script src="{{ asset('assets/js/pages/landing.init.js') }}"></script>
-        <!-- aos js -->
-        <script src="{{ asset('assets/libs/aos/aos.js') }}"></script>
-        <!-- glightbox js -->
-        <script src="{{ asset('assets/libs/glightbox/js/glightbox.min.js') }}"></script>
+        <!-- Non-critical JavaScript - Load with defer -->
+        <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}" defer></script>
+        <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}" defer></script>
+        <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}" defer></script>
+        <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}" defer></script>
+        <script src="{{ asset('assets/js/plugins.js') }}" defer></script>
 
-        <!-- isotope-layout -->
-        <script src="{{ asset('assets/libs/isotope-layout/isotope.pkgd.min.js') }}"></script>
-
-        <script src="{{ asset('assets/js/pages/gallery.init.js') }}"></script>
+        <!-- Swiper slider js - Load when needed -->
         <script>
+            // Lazy load Swiper
+            function loadSwiper() {
+                if (document.querySelector('.swiper')) {
+                    const script = document.createElement('script');
+                    script.src = "{{ asset('assets/libs/swiper/swiper-bundle.min.js') }}";
+                    script.onload = function() {
+                        loadScript("{{ asset('assets/js/pages/landing.init.js') }}");
+                    };
+                    document.head.appendChild(script);
+                }
+            }
+
+            // Lazy load AOS
+            function loadAOS() {
+                // Check if device is mobile
+                const isMobile = window.innerWidth <= 768 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+                    .test(navigator.userAgent);
+
+                if (!isMobile) {
+                    const script = document.createElement('script');
+                    script.src = "{{ asset('assets/libs/aos/aos.js') }}";
+                    script.onload = function() {
+                        AOS.init({
+                            offset: 120,
+                            duration: 800,
+                            easing: 'ease-in-out',
+                            disable: false
+                        });
+                    };
+                    document.head.appendChild(script);
+                } else {
+                    // On mobile, disable AOS completely
+                    console.log('AOS disabled on mobile for better performance');
+                }
+            }
+
+            // Helper function to load scripts
+            function loadScript(src, callback) {
+                const script = document.createElement('script');
+                script.src = src;
+                if (callback) script.onload = callback;
+                document.head.appendChild(script);
+            }
+
+            // Lazy load gallery scripts when needed
+            function loadGalleryScripts() {
+                if (document.querySelector('.gallery-wrapper')) {
+                    loadScript("{{ asset('assets/libs/glightbox/js/glightbox.min.js') }}", function() {
+                        loadScript("{{ asset('assets/libs/isotope-layout/isotope.pkgd.min.js') }}", function() {
+                            loadScript("{{ asset('assets/js/pages/gallery.init.js') }}");
+                        });
+                    });
+                }
+            }
+
+            // Load scripts on DOM ready
             document.addEventListener('DOMContentLoaded', function() {
-                AOS.init({
-                    offset: window.innerWidth < 768 ? 50 : 120, // Sesuaikan offset untuk perangkat mobile
-                    duration: window.innerWidth < 768 ? 400 : 800, // Sesuaikan durasi untuk perangkat mobile
-                    easing: 'ease-in-out',
-                    disable: 'mobile' // Nonaktifkan AOS pada perangkat mobile
-                });
+                // Load essential scripts
+                loadSwiper();
+                loadAOS();
+                loadGalleryScripts();
             });
 
-            window.addEventListener('resize', function() {
-                AOS.init({
-                    offset: window.innerWidth < 768 ? 50 : 120, // Sesuaikan offset untuk perangkat mobile
-                    duration: window.innerWidth < 768 ? 400 : 800, // Sesuaikan durasi untuk perangkat mobile
-                    easing: 'ease-in-out',
-                    disable: 'mobile' // Nonaktifkan AOS pada perangkat mobile
-                });
-            });
-        </script>
-        <script>
+            // Handle theme toggle
             function toggleTheme() {
                 const htmlElement = document.documentElement;
                 const currentTheme = htmlElement.getAttribute('data-bs-theme');
@@ -392,7 +526,15 @@
             });
         </script>
         <script>
-            AOS.init();
+            // Initialize AOS only on desktop devices
+            document.addEventListener('DOMContentLoaded', function() {
+                const isMobile = window.innerWidth <= 768 ||
+                    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+                if (!isMobile && typeof AOS !== 'undefined') {
+                    AOS.init();
+                }
+            });
         </script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {

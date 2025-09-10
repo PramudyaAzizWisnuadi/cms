@@ -81,18 +81,20 @@ class GenerateSitemap extends Command
             }
         });
 
-        // Events (if Event model exists)
+        // Events (if Event model exists and has external links)
         if (class_exists('App\Models\Event')) {
-            Event::whereDate('end_date', '>=', now())->each(function ($event) use ($sitemap) {
-                if ($event->slug && Route::has('event.show')) {
-                    $sitemap->add(
-                        Url::create(route('event.show', $event->slug))
-                            ->setLastModificationDate($event->updated_at)
-                            ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                            ->setPriority(0.6)
-                    );
-                }
-            });
+            Event::whereDate('end_date', '>=', now())
+                ->whereNotNull('link')
+                ->each(function ($event) use ($sitemap) {
+                    if ($event->link && filter_var($event->link, FILTER_VALIDATE_URL)) {
+                        $sitemap->add(
+                            Url::create($event->link)
+                                ->setLastModificationDate($event->updated_at)
+                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                                ->setPriority(0.6)
+                        );
+                    }
+                });
         }
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
