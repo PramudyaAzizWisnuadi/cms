@@ -29,10 +29,11 @@ class GaleryController extends Controller
         $galerycategory = CategoryGalery::all();
         $sosial = Sosial::first();
         $events = Event::whereDate('end_date', '>=', Carbon::today())->orderBy('created_at')->get();
+        
         if ($category_id) {
-            $galery = Galery::where('category_id', $category_id)->paginate(12);
+            $galery = Galery::where('category_id', $category_id)->latest()->paginate(12);
         } else {
-            $galery = Galery::paginate(4);
+            $galery = Galery::latest()->paginate(12);
         }
 
         return view('galery.index', compact('galery', 'galerycategory', 'category_id', 'sosial', 'events'));

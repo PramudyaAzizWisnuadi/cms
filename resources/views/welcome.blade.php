@@ -192,7 +192,7 @@
             </div>
             <!-- end row -->
             <div data-aos-duration="1000" data-aos="fade-left" class="row g-4">
-                @foreach ($data as $item)
+                @forelse ($data as $item)
                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                         <div class="card h-100 overflow-hidden blog-grid-card shadow-sm border-0">
                             <div class="position-relative overflow-hidden blog-img-container">
@@ -232,7 +232,15 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-12">
+                        <div class="text-center py-5">
+                            <i class="ri-article-line display-1 text-muted mb-3"></i>
+                            <h5 class="text-muted">Belum ada artikel terbaru</h5>
+                            <p class="text-muted">Artikel akan segera tersedia</p>
+                        </div>
+                    </div>
+                @endforelse
             </div>
             <div class="text-center mt-5">
                 <div class="d-inline-flex align-items-center">
@@ -366,10 +374,9 @@
                                     <div class="text-center">
                                         @if ($l->image)
                                             <div class="company-logo mb-3">
-                                                <a href="{{ asset('storage/' . $l->image) }}" target="_blank" 
-                                                   title="Klik untuk melihat gambar lebih besar"
-                                                   class="d-block"
-                                                   style="text-decoration: none; border: 2px dashed #007bff; padding: 5px; border-radius: 8px;">
+                                                <a href="{{ asset('storage/' . $l->image) }}" target="_blank"
+                                                    title="Klik untuk melihat gambar lebih besar" class="d-block"
+                                                    style="text-decoration: none; border: 2px dashed #007bff; padding: 5px; border-radius: 8px;">
                                                     <img src="{{ asset('storage/' . $l->image) }}"
                                                         alt="{{ $l->name ?? 'Logo' }}"
                                                         class="img-fluid rounded shadow-sm"
@@ -393,10 +400,9 @@
                                     <!-- Thumbnail Image -->
                                     @if ($l->thumbnail)
                                         <div class="company-thumbnail mb-3">
-                                            <a href="{{ asset('storage/' . $l->thumbnail) }}" target="_blank" 
-                                               title="Klik untuk melihat gambar lebih besar"
-                                               class="d-block"
-                                               style="text-decoration: none; border: 2px dashed #007bff; padding: 5px; border-radius: 8px;">
+                                            <a href="{{ asset('storage/' . $l->thumbnail) }}" target="_blank"
+                                                title="Klik untuk melihat gambar lebih besar" class="d-block"
+                                                style="text-decoration: none; border: 2px dashed #007bff; padding: 5px; border-radius: 8px;">
                                                 <img src="{{ asset('storage/' . $l->thumbnail) }}"
                                                     alt="{{ $l->name ?? 'Thumbnail' }}"
                                                     class="img-fluid rounded shadow-sm"
@@ -455,7 +461,7 @@
                                             @endif
 
                                             @if ($l->tiktok)
-                                                <a href="https://www.tiktok.com/@{{ $l - > tiktok }}" target="_blank"
+                                                <a href="https://www.tiktok.com/{{ $l->tiktok }}" target="_blank"
                                                     class="btn btn-outline-dark btn-sm">
                                                     <i class="ri-tiktok-line me-1"></i>TikTok
                                                 </a>
@@ -547,21 +553,21 @@
                         <head>
                             <title>${imageTitle}</title>
                             <style>
-                                body { 
-                                    margin: 0; 
-                                    padding: 20px; 
-                                    background: #000; 
-                                    display: flex; 
+                                body {
+                                    margin: 0;
+                                    padding: 20px;
+                                    background: #000;
+                                    display: flex;
                                     flex-direction: column;
-                                    align-items: center; 
-                                    justify-content: center; 
+                                    align-items: center;
+                                    justify-content: center;
                                     min-height: 100vh;
                                     font-family: Arial, sans-serif;
                                 }
-                                img { 
-                                    max-width: 100%; 
-                                    max-height: 90vh; 
-                                    object-fit: contain; 
+                                img {
+                                    max-width: 100%;
+                                    max-height: 90vh;
+                                    object-fit: contain;
                                     border-radius: 8px;
                                     box-shadow: 0 4px 20px rgba(255,255,255,0.1);
                                 }
@@ -603,7 +609,7 @@
                     </html>
                 `);
                 popup.document.close();
-            }            // Debug modal functionality
+            } // Debug modal functionality
             document.addEventListener('DOMContentLoaded', function() {
                 console.log('DOM loaded, setting up image click handlers');
 
@@ -924,7 +930,7 @@
             .blog-img-container {
                 height: 180px;
             }
-            
+
             .card-title {
                 font-size: 1.1rem;
             }
@@ -970,13 +976,13 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .company-logo a,
         .company-thumbnail a {
             display: block;
             text-decoration: none;
         }
-        
+
         .image-overlay {
             position: absolute;
             top: 0;
@@ -993,25 +999,26 @@
             transition: opacity 0.3s ease;
             border-radius: 10px;
             z-index: 10;
-            pointer-events: none; /* Penting: biarkan klik menembus overlay */
+            pointer-events: none;
+            /* Penting: biarkan klik menembus overlay */
         }
-        
+
         .company-thumbnail a:hover .image-overlay,
         .company-logo a:hover .image-overlay {
             opacity: 1;
         }
-        
+
         .image-overlay i {
             font-size: 2rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .image-overlay p {
             font-size: 0.9rem;
             text-align: center;
             margin: 0;
         }
-        
+
         /* Make images more obvious when hoverable */
         .company-logo a,
         .company-thumbnail a {
@@ -1020,22 +1027,24 @@
             transition: transform 0.2s ease;
             cursor: pointer;
         }
-        
+
         .company-logo a:hover,
         .company-thumbnail a:hover {
             transform: scale(1.02);
         }
-        
+
         .company-logo img,
         .company-thumbnail img {
             transition: filter 0.3s ease, box-shadow 0.3s ease;
         }
-        
+
         .company-logo a:hover img,
         .company-thumbnail a:hover img {
             filter: brightness(1.1);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }        /* Lightbox Modal Styling */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Lightbox Modal Styling */
         .modal-fullscreen .modal-content {
             border-radius: 0;
         }
@@ -1208,7 +1217,8 @@
             }
 
             .blog-overlay {
-                opacity: 1 !important; /* Always show on mobile */
+                opacity: 1 !important;
+                /* Always show on mobile */
                 background: rgba(0, 0, 0, 0.3) !important;
             }
         }

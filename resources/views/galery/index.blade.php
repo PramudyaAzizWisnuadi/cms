@@ -70,7 +70,7 @@
                                 <!-- Gallery Grid -->
                                 <div class="row gallery-wrapper g-3">
                                     @forelse ($galery as $item)
-                                        <div class="element-item col-xxl-2 col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 category-{{ $item->category_id }}"
+                                        <div class="element-item col-lg-3 col-md-4 col-sm-6 col-12 category-{{ $item->category_id }}"
                                              data-category="category-{{ $item->category_id }}">
                                             <div class="gallery-box card h-100 border-0 shadow-sm">
                                                 <div class="gallery-container position-relative">
@@ -198,11 +198,12 @@
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #fff;
+            height: auto;
         }
 
         .gallery-box:hover {
-            transform: translateY(-4px) scale(1.01);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-container {
@@ -210,12 +211,14 @@
             overflow: hidden;
             height: 180px;
             background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 0.375rem 0.375rem 0 0;
         }
 
         .gallery-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -264,7 +267,7 @@
         }
 
         .box-content {
-            padding: 1.25rem;
+            padding: 1rem;
             background: #fff;
         }
 

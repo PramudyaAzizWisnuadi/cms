@@ -19,8 +19,8 @@ class HomeController extends Controller
     public function index()
     {
         // Optimized database queries with caching and eager loading
-        $data = Cache::remember('homepage_posts', 300, function () {
-            return Post::select('id', 'title', 'slug', 'body', 'thumbnail', 'created_at')
+        $data = Cache::remember('homepage_posts', 60, function () {
+            return Post::select('id', 'title', 'slug', 'body', 'thumbnail', 'status', 'created_at')
                 ->where('status', 'published')
                 ->with(['category:id,name', 'tags:id,name'])
                 ->latest()

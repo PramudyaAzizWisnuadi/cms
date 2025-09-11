@@ -30,7 +30,7 @@ class AdminPanelProvider extends PanelProvider
             ->spa()
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('filament-admin')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
