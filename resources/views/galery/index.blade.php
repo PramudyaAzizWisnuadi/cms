@@ -68,9 +68,9 @@
                                 </div>
 
                                 <!-- Gallery Grid -->
-                                <div class="row gallery-wrapper g-3">
+                                <div class="modern-gallery-grid">
                                     @forelse ($galery as $item)
-                                        <div class="element-item col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 category-{{ $item->category_id }}"
+                                        <div class="gallery-item category-{{ $item->category_id }}"
                                              data-category="category-{{ $item->category_id }}">
                                             <div class="gallery-box card h-100 border-0 shadow-sm">
                                                 <div class="gallery-container position-relative">
@@ -83,10 +83,19 @@
                                                              loading="lazy" />
                                                         <div class="gallery-overlay">
                                                             <div class="overlay-content">
-                                                                <h5 class="overlay-caption">{{ $item->name }}</h5>
-                                                                <div class="overlay-icons">
-                                                                    <i class="ri-zoom-in-line"></i>
-                                                                    <span class="ms-2">Klik untuk memperbesar</span>
+                                                                <div class="d-flex justify-content-between align-items-end w-100">
+                                                                    <div>
+                                                                        <h5 class="overlay-caption">{{ $item->name }}</h5>
+                                                                        <div class="overlay-icons">
+                                                                            <i class="ri-zoom-in-line"></i>
+                                                                            <span class="ms-1">Zoom</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    @if($item->category)
+                                                                        <span class="badge bg-primary text-white small rounded-pill">
+                                                                            {{ Str::limit($item->category->name, 10) }}
+                                                                        </span>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -98,14 +107,9 @@
                                                             <h6 class="mb-1 fw-semibold text-dark">{{ Str::limit($item->name, 20) }}</h6>
                                                             <small class="text-muted">
                                                                 <i class="ri-camera-line me-1"></i>
-                                                                by <span class="text-primary fw-medium">MD Group</span>
+                                                                <span class="text-primary fw-medium">MD Group</span>
                                                             </small>
                                                         </div>
-                                                        @if($item->category)
-                                                            <span class="badge bg-success-subtle text-success">
-                                                                {{ $item->category->name }}
-                                                            </span>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -206,12 +210,82 @@
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
         }
 
+        /* Modern CSS Grid Gallery */
+        .modern-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            min-height: 400px;
+        }
+
+        /* Force exactly 4 columns on large screens */
+        @media (min-width: 1200px) {
+            .modern-gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.25rem;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .modern-gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991px) {
+            .modern-gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767px) {
+            .modern-gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .modern-gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+        }
+
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .gallery-wrapper {
+            min-height: 400px;
+        }
+
+        .gallery-box {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-box:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
         .gallery-container {
             position: relative;
             overflow: hidden;
-            height: 180px;
+            height: 220px;
             background: linear-gradient(45deg, #f8f9fa, #e9ecef);
             border-radius: 0.375rem 0.375rem 0 0;
+            flex-shrink: 0;
         }
 
         .gallery-img {
@@ -241,7 +315,7 @@
             color: white;
             display: flex;
             align-items: flex-end;
-            padding: 0.875rem;
+            padding: 0.75rem;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -258,34 +332,77 @@
             margin: 0 0 0.25rem 0;
             font-size: 0.9rem;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
         .overlay-icons {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
         .box-content {
-            padding: 0.75rem;
+            padding: 1rem;
             background: #fff;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
         }
 
         .box-content h6 {
             color: #2c3e50;
-            line-height: 1.4;
-            font-size: 0.8rem;
+            line-height: 1.3;
+            font-size: 0.9rem;
             font-weight: 600;
         }
 
         .box-content small {
-            font-size: 0.7rem;
+            font-size: 0.8rem;
         }
 
-        /* Responsive Design - 4 columns optimized */
-        @media (max-width: 1200px) {
+        .badge.small {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+        }
+
+        /* Badge in overlay styling */
+        .gallery-overlay .badge {
+            font-size: 0.65rem;
+            padding: 0.25rem 0.5rem;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .overlay-content {
+            width: 100%;
+        }
+
+        /* Responsive adjustments for grid items */
+        @media (min-width: 1200px) {
             .gallery-container {
-                height: 160px;
+                height: 220px;
+            }
+            
+            .overlay-caption {
+                font-size: 0.9rem;
+            }
+
+            .box-content {
+                padding: 1rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.9rem;
+            }
+
+            .box-content small {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199px) {
+            .gallery-container {
+                height: 200px;
             }
             
             .overlay-caption {
@@ -293,59 +410,21 @@
             }
 
             .box-content {
-                padding: 0.7rem;
+                padding: 0.9rem;
             }
 
             .box-content h6 {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
             }
         }
 
-        @media (max-width: 992px) {
-            .gallery-container {
-                height: 140px;
-            }
-            
-            .page-title-box {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .overlay-caption {
-                font-size: 0.8rem;
-            }
-
-            .box-content {
-                padding: 0.65rem;
-            }
-
-            .box-content h6 {
-                font-size: 0.75rem;
-            }
-
-            .box-content small {
-                font-size: 0.65rem;
-            }
-        }
-
-        @media (max-width: 768px) {
+        @media (min-width: 768px) and (max-width: 991px) {
             .gallery-container {
                 height: 160px;
             }
 
-            .categories {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-                margin: 0.2rem;
-            }
-
             .overlay-caption {
-                font-size: 0.9rem;
-            }
-
-            .overlay-icons {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
             }
 
             .box-content {
@@ -359,43 +438,63 @@
             .box-content small {
                 font-size: 0.7rem;
             }
-
-            .gallery-box:hover {
-                transform: translateY(-4px);
-            }
         }
 
-        @media (max-width: 576px) {
+        @media (min-width: 576px) and (max-width: 767px) {
             .gallery-container {
                 height: 140px;
             }
 
+            .categories {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+                margin: 0.2rem;
+            }
+
             .overlay-caption {
-                font-size: 0.85rem;
-            }
-
-            .overlay-icons {
-                font-size: 0.75rem;
-            }
-
-            .overlay-content {
-                padding: 0.75rem;
-            }
-
-            .box-content {
-                padding: 0.625rem;
+                font-size: 0.8rem;
             }
 
             .box-content h6 {
                 font-size: 0.75rem;
             }
 
-            .box-content small {
+            .gallery-box:hover {
+                transform: translateY(-3px);
+            }
+        }
+
+        @media (max-width: 575px) {
+            .gallery-container {
+                height: 120px;
+            }
+
+            .overlay-caption {
+                font-size: 0.75rem;
+            }
+
+            .overlay-icons {
                 font-size: 0.65rem;
+            }
+
+            .box-content {
+                padding: 0.5rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.7rem;
+            }
+
+            .box-content small {
+                font-size: 0.6rem;
             }
 
             .page-title-box h3 {
                 font-size: 1.5rem;
+            }
+
+            .gallery-box:hover {
+                transform: translateY(-2px);
             }
         }
 
