@@ -70,7 +70,7 @@
                                 <!-- Gallery Grid -->
                                 <div class="row gallery-wrapper g-3">
                                     @forelse ($galery as $item)
-                                        <div class="element-item col-lg-3 col-md-4 col-sm-6 col-12 category-{{ $item->category_id }}"
+                                        <div class="element-item col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 category-{{ $item->category_id }}"
                                              data-category="category-{{ $item->category_id }}">
                                             <div class="gallery-box card h-100 border-0 shadow-sm">
                                                 <div class="gallery-container position-relative">
@@ -95,7 +95,7 @@
                                                 <div class="box-content">
                                                     <div class="d-flex align-items-center justify-content-between">
                                                         <div class="flex-grow-1">
-                                                            <h6 class="mb-1 fw-semibold text-dark">{{ Str::limit($item->name, 30) }}</h6>
+                                                            <h6 class="mb-1 fw-semibold text-dark">{{ Str::limit($item->name, 20) }}</h6>
                                                             <small class="text-muted">
                                                                 <i class="ri-camera-line me-1"></i>
                                                                 by <span class="text-primary fw-medium">MD Group</span>
@@ -241,7 +241,7 @@
             color: white;
             display: flex;
             align-items: flex-end;
-            padding: 1.5rem;
+            padding: 0.875rem;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -255,31 +255,55 @@
         }
 
         .overlay-caption {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.1rem;
+            margin: 0 0 0.25rem 0;
+            font-size: 0.9rem;
             font-weight: 600;
             line-height: 1.3;
         }
 
         .overlay-icons {
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             opacity: 0.9;
         }
 
         .box-content {
-            padding: 1rem;
+            padding: 0.75rem;
             background: #fff;
         }
 
         .box-content h6 {
             color: #2c3e50;
             line-height: 1.4;
+            font-size: 0.8rem;
+            font-weight: 600;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
+        .box-content small {
+            font-size: 0.7rem;
+        }
+
+        /* Responsive Design - 4 columns optimized */
+        @media (max-width: 1200px) {
             .gallery-container {
                 height: 160px;
+            }
+            
+            .overlay-caption {
+                font-size: 0.85rem;
+            }
+
+            .box-content {
+                padding: 0.7rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .gallery-container {
+                height: 140px;
             }
             
             .page-title-box {
@@ -287,35 +311,33 @@
                 text-align: center;
                 gap: 1rem;
             }
+
+            .overlay-caption {
+                font-size: 0.8rem;
+            }
+
+            .box-content {
+                padding: 0.65rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.75rem;
+            }
+
+            .box-content small {
+                font-size: 0.65rem;
+            }
         }
 
         @media (max-width: 768px) {
             .gallery-container {
-                height: 140px;
+                height: 160px;
             }
 
             .categories {
                 font-size: 0.8rem;
                 padding: 0.4rem 0.8rem;
                 margin: 0.2rem;
-            }
-
-            .overlay-caption {
-                font-size: 1rem;
-            }
-
-            .box-content {
-                padding: 1rem;
-            }
-
-            .gallery-box:hover {
-                transform: translateY(-4px);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-container {
-                height: 120px;
             }
 
             .overlay-caption {
@@ -327,7 +349,49 @@
             }
 
             .box-content {
-                padding: 0.875rem;
+                padding: 0.75rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.8rem;
+            }
+
+            .box-content small {
+                font-size: 0.7rem;
+            }
+
+            .gallery-box:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-container {
+                height: 140px;
+            }
+
+            .overlay-caption {
+                font-size: 0.85rem;
+            }
+
+            .overlay-icons {
+                font-size: 0.75rem;
+            }
+
+            .overlay-content {
+                padding: 0.75rem;
+            }
+
+            .box-content {
+                padding: 0.625rem;
+            }
+
+            .box-content h6 {
+                font-size: 0.75rem;
+            }
+
+            .box-content small {
+                font-size: 0.65rem;
             }
 
             .page-title-box h3 {
