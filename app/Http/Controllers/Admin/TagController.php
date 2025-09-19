@@ -23,7 +23,6 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255|unique:tags,name',
-            'description' => 'nullable|max:500',
         ]);
 
         Tag::create($request->all());
@@ -46,7 +45,6 @@ class TagController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255|unique:tags,name,' . $tag->id,
-            'description' => 'nullable|max:500',
         ]);
 
         $tag->update($request->all());

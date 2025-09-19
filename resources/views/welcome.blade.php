@@ -94,8 +94,8 @@
     <!-- end client section -->
 
     <!-- start services -->
-    <section class="section" id="tentangkami">
-        <div class="bg-overlay-1 bg-overlay-pattern"></div>
+    <section class="section bg-light" id="tentangkami">
+        <div class="bg-overlay-pattern"></div>
         <div data-aos="fade-down" data-aos-duration="1000" class="container">
             <div class="row justify-content-center content">
                 <div class="col-lg-8">

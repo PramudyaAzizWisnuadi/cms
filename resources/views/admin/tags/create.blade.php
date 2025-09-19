@@ -30,13 +30,6 @@
                     </div>
                     
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description (Optional)</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" 
-                                  id="description" name="description" rows="3"
-                                  placeholder="Brief description of this tag...">{{ old('description') }}</textarea>
-                        @error('description')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
                         <div class="form-text">Provide a brief explanation of what this tag represents.</div>
                     </div>
                     
