@@ -25,7 +25,8 @@
                             @error('name')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <div class="form-text">Use short, descriptive words. Example: "Laravel", "Web Development",
+                            <div class="form-text">Use short, descript
+                                ive words. Example: "Laravel", "Web Development",
                                 "Tutorial"</div>
                         </div>
 
